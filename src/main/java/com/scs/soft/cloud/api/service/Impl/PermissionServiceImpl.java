@@ -1,0 +1,62 @@
+package com.scs.soft.cloud.api.service.Impl;
+
+import com.scs.soft.cloud.api.common.Result;
+import com.scs.soft.cloud.api.common.ResultCode;
+import com.scs.soft.cloud.api.entity.Permission;
+import com.scs.soft.cloud.api.mapper.PermissionMapper;
+import com.scs.soft.cloud.api.service.PermissionService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author wf
+ * @create 2020
+ * @description TODO
+ */
+@Service
+@Slf4j
+public class PermissionServiceImpl implements PermissionService {
+    @Resource
+    private PermissionMapper permissionMapper;
+
+    @Override
+    public Result insertPermission(Permission permission) {
+        try {
+            permissionMapper.insertPermission(permission);
+            return Result.success();
+        } catch (SQLException e) {
+            log.error("权限新增失败");
+        }
+        return Result.failure(ResultCode.DATABASE_ERROR);
+    }
+
+    @Override
+    public Result selectPermission() {
+        List<Map<String, Object>> permissions = null;
+        try {
+            permissions = permissionMapper.getTopMenuPermission();
+        } catch (SQLException e) {
+            log.error("获取所有权限异常");
+        }
+        if(permissions != null){
+            return Result.success(permissions);
+        }
+        return Result.failure(ResultCode.RESULT_CODE_DATA_NONE);
+    }
+
+    @Override
+    public Result deletePermission(int id) {
+        try {
+            permissionMapper.deletePermissionById(id);
+            return Result.success();
+        } catch (SQLException e) {
+            log.error("删除权限");
+        }
+        return Result.failure(ResultCode.DATABASE_ERROR);
+    }
+}
