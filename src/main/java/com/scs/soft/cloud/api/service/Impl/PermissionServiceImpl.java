@@ -3,7 +3,10 @@ package com.scs.soft.cloud.api.service.Impl;
 import com.scs.soft.cloud.api.common.Result;
 import com.scs.soft.cloud.api.common.ResultCode;
 import com.scs.soft.cloud.api.entity.Permission;
+import com.scs.soft.cloud.api.entity.RolePermission;
+import com.scs.soft.cloud.api.mapper.CommonMapper;
 import com.scs.soft.cloud.api.mapper.PermissionMapper;
+import com.scs.soft.cloud.api.mapper.RolePermissionMapper;
 import com.scs.soft.cloud.api.service.PermissionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,16 +26,21 @@ import java.util.Map;
 public class PermissionServiceImpl implements PermissionService {
     @Resource
     private PermissionMapper permissionMapper;
+    @Resource
+    private CommonMapper commonMapper;
+    @Resource
+    private RolePermissionMapper rolePermissionMapper;
 
     @Override
     public Result insertPermission(Permission permission) {
         try {
+            commonMapper.alert("t_permission");
             permissionMapper.insertPermission(permission);
             return Result.success();
         } catch (SQLException e) {
             log.error("权限新增失败");
+            return Result.failure(ResultCode.DATABASE_ERROR);
         }
-        return Result.failure(ResultCode.DATABASE_ERROR);
     }
 
     @Override
@@ -42,6 +50,7 @@ public class PermissionServiceImpl implements PermissionService {
             permissions = permissionMapper.getTopMenuPermission();
         } catch (SQLException e) {
             log.error("获取所有权限异常");
+            return Result.failure(ResultCode.DATA_IS_WRONG);
         }
         if(permissions != null){
             return Result.success(permissions);
@@ -50,13 +59,26 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
-    public Result deletePermission(int id) {
+    public Result deletePermissionById(int id) {
         try {
+            RolePermission rolePermission = RolePermission.builder().permissionId(id).build();
             permissionMapper.deletePermissionById(id);
+            rolePermissionMapper.deleteRolePermissionBy(rolePermission);
             return Result.success();
         } catch (SQLException e) {
             log.error("删除权限");
+            return Result.failure(ResultCode.DATABASE_ERROR);
         }
-        return Result.failure(ResultCode.DATABASE_ERROR);
+    }
+
+    @Override
+    public Result updatePermissionById(Permission permission) {
+        try {
+            permissionMapper.updatePermissionById(permission);
+            return Result.success();
+        } catch (SQLException e) {
+            log.error("权限更新异常");
+            return Result.failure(ResultCode.DATA_IS_WRONG);
+        }
     }
 }

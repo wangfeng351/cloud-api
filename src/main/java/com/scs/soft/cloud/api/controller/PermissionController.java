@@ -37,6 +37,12 @@ public class PermissionController {
     @ApiOperation(value = "删除指定菜单")
     @DeleteMapping(value = "/d/{id}")
     Result deletePermissionById(@PathVariable int id){
-        return permissionService.deletePermission(id);
+        return permissionService.deletePermissionById(id);
+    }
+
+    @ApiOperation(value = "修改权限内容")
+    @PutMapping(value = "/u")
+    Result updatePermissionById(@RequestBody Permission permission){
+        return permissionService.updatePermissionById(permission);
     }
 }

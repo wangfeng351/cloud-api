@@ -26,6 +26,13 @@ public interface PermissionService {
      * 根据id删除权限
      * @return
      */
-    Result deletePermission(int id);
+    Result deletePermissionById(int id);
+
+    /**
+     * 修改权限
+     * @param permission
+     * @return
+     */
+    Result updatePermissionById(Permission permission);
 
 }

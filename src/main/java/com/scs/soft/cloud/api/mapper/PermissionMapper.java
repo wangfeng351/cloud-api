@@ -21,6 +21,7 @@ public interface PermissionMapper {
      */
     @Insert("INSERT INTO t_permission VALUES(null,#{name},#{type},#{permissionCode}," +
             "#{parentId},#{routerUrl},#{icon},#{authorization},#{status},#{sort})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     void insertPermission(Permission permission) throws SQLException;
 
     /**
@@ -47,11 +48,31 @@ public interface PermissionMapper {
     List<Permission> getChildPermissionByParentId(@Param("id") int id) throws SQLException;
 
     /**
+     * 根据id查询权限
+     * @return
+     * @throws SQLException
+     */
+    @Select("SELECT * FROM t_permission WHERE id=#{id} ORDER BY id ASC")
+    Permission selectPermission(@Param("id") int id) throws SQLException;
+
+
+    /**
      * 根据id删除权限
      * @param id
      * @throws SQLException
      */
     @Delete("DELETE FROM t_permission WHERE id=#{id}")
     void deletePermissionById(@Param("id") int id) throws SQLException;
+
+    /**
+     * 根基权限id修改权限
+     * @param permission
+     * @return
+     * @throws SQLException
+     */
+    @Update("UPDATE t_permission SET name=#{name},type=#{type},permission_code=#{permissionCode}," +
+            "parent_id=#{parentId},router_url=#{routerUrl},icon=#{icon},authorization=#{authorization}," +
+            "status=#{status},sort=#{sort} WHERE id=#{id}")
+    void updatePermissionById(Permission permission) throws SQLException;
 }
 

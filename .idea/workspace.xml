@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="564f0f62-169a-4128-846c-170f4c44ffaa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/controller/RoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/controller/RolePermissionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/domain/RolePermissionQueryDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/entity/RolePermission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/CommonMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/RoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/RolePermissionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/Impl/RolePermissionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/Impl/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/RolePermissionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/RoleMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/RolePermissionMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/service/Impl/RoleServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/service/RolePermissionServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/controller/PermissionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/PermissionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/Impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/Impl/PermissionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/PermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/PermissionMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/PermissionMapperTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\maven_jar" />
+        <option name="mavenHome" value="E:/apache-maven-3.6.2" />
+        <option name="userSettingsFile" value="E:\apache-maven-3.6.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1WPplTYQNuPscAS2yqD55s0T1R9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="F:/space-api" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.scs.soft.cloud.api.service" />
+      <recent name="com.scs.soft.cloud.api.mapper" />
+      <recent name="com.scs.soft.cloud.api.service.Impl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.scs.soft.cloud.api.mapper" />
+      <recent name="com.scs.soft.cloud.api.config" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\java-web\cloud-api\src\main\java\com\scs\soft\cloud\api\common" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CloudApiApplication">
+    <configuration name="PermissionServiceTest.deletePermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloud-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.scs.soft.cloud.api.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.service" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.service.PermissionServiceTest" />
+      <option name="METHOD_NAME" value="deletePermission" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RolePermissionMapperTest.deleteRolePermissionById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloud-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.scs.soft.cloud.api.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.mapper.RolePermissionMapperTest" />
+      <option name="METHOD_NAME" value="deleteRolePermissionById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RolePermissionMapperTest.getRolePermissionById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloud-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.scs.soft.cloud.api.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.mapper.RolePermissionMapperTest" />
+      <option name="METHOD_NAME" value="getRolePermissionById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RolePermissionServiceTest.getRolePermissionByRoId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloud-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.scs.soft.cloud.api.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.service" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.service.RolePermissionServiceTest" />
+      <option name="METHOD_NAME" value="getRolePermissionByRoId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoleServiceImplTest.deleteRoleById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloud-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.scs.soft.cloud.api.service.Impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.service.Impl" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.service.Impl.RoleServiceImplTest" />
+      <option name="METHOD_NAME" value="deleteRoleById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CloudApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="cloud-api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.scs.soft.cloud.api.CloudApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PermissionServiceTest.deletePermission" />
+        <item itemvalue="JUnit.RoleServiceImplTest.deleteRoleById" />
+        <item itemvalue="JUnit.RolePermissionMapperTest.deleteRolePermissionById" />
+        <item itemvalue="JUnit.RolePermissionServiceTest.getRolePermissionByRoId" />
+        <item itemvalue="JUnit.RolePermissionMapperTest.getRolePermissionById" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="564f0f62-169a-4128-846c-170f4c44ffaa" name="Default Changelist" comment="" />
+      <created>1579061234555</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579061234555</updated>
+      <workItem from="1579061240362" duration="5099000" />
+      <workItem from="1579141100365" duration="26855000" />
+      <workItem from="1579230878870" duration="19811000" />
+    </task>
+    <task id="LOCAL-00001" summary="后端的搭建及权限的增删查接口">
+      <created>1579184719090</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579184719091</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="后端的搭建及权限的增删查接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="后端的搭建及权限的增删查接口" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser" timestamp="1579249686414">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1579249686414" />
+    <state x="372" y="22" key="CommitChangelistDialog2" timestamp="1579184717326">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="372" y="22" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1579184717326" />
+    <state x="549" y="188" key="FileChooserDialogImpl" timestamp="1579240681422">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="549" y="188" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1579240681422" />
+    <state width="1493" height="279" key="GridCell.Tab.0.bottom" timestamp="1579259719774">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="279" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579259719774" />
+    <state width="1493" height="279" key="GridCell.Tab.0.center" timestamp="1579259719774">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="279" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1579259719774" />
+    <state width="1493" height="279" key="GridCell.Tab.0.left" timestamp="1579259719774">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="279" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1579259719774" />
+    <state width="1493" height="279" key="GridCell.Tab.0.right" timestamp="1579259719774">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="279" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1579259719774" />
+    <state width="1493" height="279" key="GridCell.Tab.1.bottom" timestamp="1579259719775">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="279" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579259719775" />
+    <state width="1493" height="279" key="GridCell.Tab.1.center" timestamp="1579259719775">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="279" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1579259719775" />
+    <state width="1493" height="279" key="GridCell.Tab.1.left" timestamp="1579259719774">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="279" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1579259719774" />
+    <state width="1493" height="279" key="GridCell.Tab.1.right" timestamp="1579259719775">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="279" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1579259719775" />
+    <state x="299" y="88" key="Maven.ArtifactSearchDialog" timestamp="1579147718281">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="299" y="88" key="Maven.ArtifactSearchDialog/0.0.1536.864@0.0.1536.864" timestamp="1579147718281" />
+    <state x="270" y="75" key="SettingsEditor" timestamp="1579149726318">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="270" y="75" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1579149726318" />
+    <state x="361" y="166" key="Vcs.Push.Dialog.v2" timestamp="1579184759253">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="166" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1579184759253" />
+    <state x="449" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1579141110623">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="449" y="257" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1579141110623" />
+    <state x="562" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579234486415">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="562" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1579234486415" />
+    <state x="526" y="151" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1579251150316">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="526" y="151" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.864@0.0.1536.864" timestamp="1579251150316" />
+    <state x="511" y="51" key="refactoring.ChangeSignatureDialog" timestamp="1579162604730">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="511" y="51" key="refactoring.ChangeSignatureDialog/0.0.1536.864@0.0.1536.864" timestamp="1579162604730" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1579231342121">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1579231342121" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1579250809599">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1579250809599" />
+  </component>
+</project>

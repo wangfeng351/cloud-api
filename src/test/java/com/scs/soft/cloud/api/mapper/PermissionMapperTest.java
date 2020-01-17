@@ -41,4 +41,15 @@ class PermissionMapperTest {
     void deletePermissionById() throws SQLException {
         mapper.deletePermissionById(5);
     }
+
+    @Test
+    void updatePermissionById() throws SQLException {
+        Permission permission = Permission.builder().id(9).name("修改资料").type((short) 1).permissionCode("update_data").build();
+        mapper.updatePermissionById(permission);
+    }
+
+    @Test
+    void selectPermission() throws SQLException {
+        System.out.println(mapper.selectPermission(9));
+    }
 }
