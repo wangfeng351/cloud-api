@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -80,5 +81,20 @@ public class PermissionServiceImpl implements PermissionService {
             log.error("权限更新异常");
             return Result.failure(ResultCode.DATA_IS_WRONG);
         }
+    }
+
+    @Override
+    public Result getPermissionByName(Permission permission) {
+        List<Permission> permissions;
+        try {
+            permissions = permissionMapper.getPermissionByName(permission);
+        } catch (SQLException e) {
+            log.error("权限模糊查询异常");
+            return Result.failure(ResultCode.DATABASE_ERROR);
+        }
+        if(permission != null){
+            return Result.success(permissions);
+        }
+        return Result.failure(ResultCode.RESULT_CODE_DATA_NONE);
     }
 }

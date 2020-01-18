@@ -35,4 +35,10 @@ public interface PermissionService {
      */
     Result updatePermissionById(Permission permission);
 
+    /**
+     * 根据权限名模糊查询
+     * @param permission
+     * @return
+     */
+    Result getPermissionByName(Permission permission);
 }

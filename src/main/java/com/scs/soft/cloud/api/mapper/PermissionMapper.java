@@ -44,8 +44,15 @@ public interface PermissionMapper {
      * @return
      * @throws SQLException
      */
+    @Results({
+            @Result(property = "childList",column = "id",
+                    many = @Many(select = "com.scs.soft.cloud.api.mapper.PermissionMapper.getChildPermissionByParentId")
+            ),
+            /*递归调用，将自己的子类权限全部调用出了*/
+            @Result(property = "id", column = "id")
+    })
     @Select("SELECT * FROM t_permission WHERE parent_id=#{id} ORDER BY id ASC")
-    List<Permission> getChildPermissionByParentId(@Param("id") int id) throws SQLException;
+    List<Map<String, Object>> getChildPermissionByParentId(@Param("id") int id) throws SQLException;
 
     /**
      * 根据id查询权限
@@ -65,7 +72,7 @@ public interface PermissionMapper {
     void deletePermissionById(@Param("id") int id) throws SQLException;
 
     /**
-     * 根基权限id修改权限
+     * 根据权限id修改权限
      * @param permission
      * @return
      * @throws SQLException
@@ -74,5 +81,8 @@ public interface PermissionMapper {
             "parent_id=#{parentId},router_url=#{routerUrl},icon=#{icon},authorization=#{authorization}," +
             "status=#{status},sort=#{sort} WHERE id=#{id}")
     void updatePermissionById(Permission permission) throws SQLException;
+
+    @Select("SELECT * FROM t_permission WHERE name LIKE CONCAT('%', #{name}, '%')")
+    List<Permission> getPermissionByName(Permission permission) throws SQLException;
 }
 

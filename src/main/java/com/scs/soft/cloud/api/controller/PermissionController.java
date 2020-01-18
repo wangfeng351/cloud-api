@@ -17,13 +17,13 @@ import javax.annotation.Resource;
  */
 @RestController
 @Api(value = "PermissionController",tags = {"权限接口"})
-@RequestMapping(value = "/api/pm")
+@RequestMapping(value = "/api")
 public class PermissionController {
     @Resource
     private PermissionService permissionService;
 
     @ApiOperation(value = "新增权限")
-    @PostMapping(value = "/post")
+    @PostMapping(value = "/p/pm")
     Result insertPermission(@RequestBody Permission permission){
         return permissionService.insertPermission(permission);
     }
@@ -35,14 +35,20 @@ public class PermissionController {
     }
 
     @ApiOperation(value = "删除指定菜单")
-    @DeleteMapping(value = "/d/{id}")
+    @DeleteMapping(value = "/d/pm/{id}")
     Result deletePermissionById(@PathVariable int id){
         return permissionService.deletePermissionById(id);
     }
 
     @ApiOperation(value = "修改权限内容")
-    @PutMapping(value = "/u")
+    @PutMapping(value = "/u/pm")
     Result updatePermissionById(@RequestBody Permission permission){
         return permissionService.updatePermissionById(permission);
+    }
+
+    @ApiOperation(value = "模糊查询权限")
+    @GetMapping(value = "/g/b/pm")
+    Result getPermissionByName(@RequestBody Permission permission){
+        return permissionService.getPermissionByName(permission);
     }
 }
