@@ -1,5 +1,6 @@
 package com.scs.soft.cloud.api.mapper;
 
+import com.scs.soft.cloud.api.domain.dto.QueryDto;
 import com.scs.soft.cloud.api.entity.Permission;
 import org.apache.ibatis.annotations.*;
 
@@ -60,7 +61,7 @@ public interface PermissionMapper {
      * @throws SQLException
      */
     @Select("SELECT * FROM t_permission WHERE id=#{id} ORDER BY id ASC")
-    Permission selectPermission(@Param("id") int id) throws SQLException;
+    Map<String, Object> getPermissionById(@Param("id") int id) throws SQLException;
 
 
     /**
@@ -68,7 +69,7 @@ public interface PermissionMapper {
      * @param id
      * @throws SQLException
      */
-    @Delete("DELETE FROM t_permission WHERE id=#{id}")
+    @Delete("DELETE FROM t_permission WHERE id=#{id} OR parent_id=#{id}")
     void deletePermissionById(@Param("id") int id) throws SQLException;
 
     /**
@@ -82,6 +83,12 @@ public interface PermissionMapper {
             "status=#{status},sort=#{sort} WHERE id=#{id}")
     void updatePermissionById(Permission permission) throws SQLException;
 
+    /**
+     * 根据名称模糊查询
+     * @param permission
+     * @return
+     * @throws SQLException
+     */
     @Select("SELECT * FROM t_permission WHERE name LIKE CONCAT('%', #{name}, '%')")
     List<Permission> getPermissionByName(Permission permission) throws SQLException;
 }

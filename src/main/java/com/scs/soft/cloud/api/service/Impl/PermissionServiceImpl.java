@@ -2,6 +2,7 @@ package com.scs.soft.cloud.api.service.Impl;
 
 import com.scs.soft.cloud.api.common.Result;
 import com.scs.soft.cloud.api.common.ResultCode;
+import com.scs.soft.cloud.api.domain.dto.QueryDto;
 import com.scs.soft.cloud.api.entity.Permission;
 import com.scs.soft.cloud.api.entity.RolePermission;
 import com.scs.soft.cloud.api.mapper.CommonMapper;
@@ -92,7 +93,7 @@ public class PermissionServiceImpl implements PermissionService {
             log.error("权限模糊查询异常");
             return Result.failure(ResultCode.DATABASE_ERROR);
         }
-        if(permission != null){
+        if(permissions != null){
             return Result.success(permissions);
         }
         return Result.failure(ResultCode.RESULT_CODE_DATA_NONE);

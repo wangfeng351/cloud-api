@@ -1,10 +1,7 @@
 package com.scs.soft.cloud.api.mapper;
 
 import com.scs.soft.cloud.api.entity.RolePermission;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -22,6 +19,12 @@ public interface RolePermissionMapper {
      * @return
      * @throws SQLException
      */
+    @Results({
+            @Result(property = "permission", column = "id",
+                    many = @Many(select = "com.scs.soft.cloud.api.mapper.PermissionMapper.getPermissionById")
+            ),
+            @Result(property = "id", column = "id")
+    })
     @Select("SELECT * FROM t_role_permission WHERE role_id=#{roleId}")
     List<Map<String, Object>> getRolePermissionById(@Param("roleId") int roleId) throws SQLException;
 

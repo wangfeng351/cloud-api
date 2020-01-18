@@ -1,6 +1,7 @@
 package com.scs.soft.cloud.api.mapper;
 
 import com.scs.soft.cloud.api.CloudApiApplication;
+import com.scs.soft.cloud.api.domain.dto.QueryDto;
 import com.scs.soft.cloud.api.entity.Permission;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -50,6 +51,16 @@ class PermissionMapperTest {
 
     @Test
     void selectPermission() throws SQLException {
-        System.out.println(mapper.selectPermission(9));
+        System.out.println(mapper.getPermissionById(9));
+    }
+
+    @Test
+    void getTopPermission() throws SQLException {
+    }
+
+    @Test
+    void getPermissionByName() throws SQLException {
+        Permission queryDto = Permission.builder().name("资源").build();
+        System.out.println( mapper.getPermissionByName(queryDto));
     }
 }
