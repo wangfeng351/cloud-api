@@ -8,11 +8,11 @@ import com.scs.soft.cloud.api.mapper.CommonMapper;
 import com.scs.soft.cloud.api.mapper.RoleMapper;
 import com.scs.soft.cloud.api.mapper.RolePermissionMapper;
 import com.scs.soft.cloud.api.service.RoleService;
+import com.scs.soft.cloud.api.util.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -64,6 +64,7 @@ public class RoleServiceImpl implements RoleService {
     public Result insertRole(Role role) {
         try {
             commonMapper.alert("t_role");
+            role.setCode(StringUtil.getRoleCode());
             roleMapper.insertRole(role);
             return Result.success();
         } catch (SQLException e) {

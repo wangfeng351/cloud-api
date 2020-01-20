@@ -1,12 +1,10 @@
 package com.scs.soft.cloud.api.controller;
 
 import com.scs.soft.cloud.api.common.Result;
-import com.scs.soft.cloud.api.domain.dto.QueryDto;
 import com.scs.soft.cloud.api.entity.Permission;
 import com.scs.soft.cloud.api.service.PermissionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

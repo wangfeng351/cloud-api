@@ -2,7 +2,6 @@ package com.scs.soft.cloud.api.service.Impl;
 
 import com.scs.soft.cloud.api.common.Result;
 import com.scs.soft.cloud.api.common.ResultCode;
-import com.scs.soft.cloud.api.domain.dto.QueryDto;
 import com.scs.soft.cloud.api.entity.Permission;
 import com.scs.soft.cloud.api.entity.RolePermission;
 import com.scs.soft.cloud.api.mapper.CommonMapper;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 

@@ -1,10 +1,7 @@
 package com.scs.soft.cloud.api.mapper;
 
-import com.scs.soft.cloud.api.entity.Permission;
 import com.scs.soft.cloud.api.entity.Role;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.jdbc.SQL;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -24,6 +21,15 @@ public interface RoleMapper {
      */
     @Select("SELECT * FROM t_role")
     List<Map<String, Object>> selectRole() throws SQLException;
+
+    /**
+     * 根据id查询角色
+     * @param id
+     * @return
+     * @throws SQLException
+     */
+    @Select("SELECT name FROM t_role WHERE id=#{id}")
+    Map<String, Object> getRoleById(@Param("id") int id) throws SQLException;
 
     /**
      * 修改角色信息

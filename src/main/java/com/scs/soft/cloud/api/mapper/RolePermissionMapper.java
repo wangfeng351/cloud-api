@@ -20,10 +20,12 @@ public interface RolePermissionMapper {
      * @throws SQLException
      */
     @Results({
-            @Result(property = "permission", column = "id",
+            @Result(property = "permission", column = "permission_id",
                     many = @Many(select = "com.scs.soft.cloud.api.mapper.PermissionMapper.getPermissionById")
             ),
-            @Result(property = "id", column = "id")
+            @Result(property = "role", column = "role_id",
+                    many = @Many(select = "com.scs.soft.cloud.api.mapper.RoleMapper.getRoleById")
+            ),
     })
     @Select("SELECT * FROM t_role_permission WHERE role_id=#{roleId}")
     List<Map<String, Object>> getRolePermissionById(@Param("roleId") int roleId) throws SQLException;

@@ -40,7 +40,8 @@ public class RoleController {
     @PostMapping(value = "/p/re")
     @ApiOperation(value = "新增角色")
     Result insertRole(@RequestBody Role role){
-       return roleService.insertRole(role);
+        System.out.println(role);
+        return roleService.insertRole(role);
     }
 
     /**

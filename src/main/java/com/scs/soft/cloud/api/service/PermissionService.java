@@ -1,7 +1,6 @@
 package com.scs.soft.cloud.api.service;
 
 import com.scs.soft.cloud.api.common.Result;
-import com.scs.soft.cloud.api.domain.dto.QueryDto;
 import com.scs.soft.cloud.api.entity.Permission;
 
 /**

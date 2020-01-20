@@ -1,15 +1,13 @@
 package com.scs.soft.cloud.api.domain.dto;
 
-import lombok.Builder;
 import lombok.Data;
 
 /**
  * @author wf
- * @create 20202020/1/18
+ * @create 2020/1/20
  * @description TODO
  */
-@Builder
 @Data
-public class QueryDto {
-    private String filedList;
+public class UserDto {
+    private String mobileList;
 }

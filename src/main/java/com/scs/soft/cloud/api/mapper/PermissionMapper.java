@@ -1,6 +1,5 @@
 package com.scs.soft.cloud.api.mapper;
 
-import com.scs.soft.cloud.api.domain.dto.QueryDto;
 import com.scs.soft.cloud.api.entity.Permission;
 import org.apache.ibatis.annotations.*;
 

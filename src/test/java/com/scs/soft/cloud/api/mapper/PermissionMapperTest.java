@@ -1,7 +1,6 @@
 package com.scs.soft.cloud.api.mapper;
 
 import com.scs.soft.cloud.api.CloudApiApplication;
-import com.scs.soft.cloud.api.domain.dto.QueryDto;
 import com.scs.soft.cloud.api.entity.Permission;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,8 +10,6 @@ import javax.annotation.Resource;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author wf
