@@ -1,5 +1,6 @@
 package com.scs.soft.cloud.api.mapper;
 
+import com.scs.soft.cloud.api.domain.vo.UserVo;
 import com.scs.soft.cloud.api.entity.UserLogin;
 import org.apache.ibatis.annotations.*;
 
@@ -43,11 +44,11 @@ public interface UserLoginMapper {
 
     /**
      * 更新用户登录状态
-     * @param userLogin
+     * @param userVo
      * @throws SQLException
      */
     @Update("UPDATE t_user_login SET status=#{status} WHERE mobile=#{mobile}")
-    void updateStatusByMobile(UserLogin userLogin) throws SQLException;
+    void updateStatusByMobile(UserVo userVo) throws SQLException;
 
     /**
      * 新增用户登录信息

@@ -10,9 +10,7 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +69,6 @@ public class ImportDataUtil {
 
     public static List<User> readExcel(File file) throws IOException, ParseException {
         List<User> list = new ArrayList<>();
-        DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd");
         FileInputStream fileInputStream = new FileInputStream(file);
         BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
         POIFSFileSystem fileSystem = new POIFSFileSystem(bufferedInputStream);

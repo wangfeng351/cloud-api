@@ -24,7 +24,9 @@ class UserRoleMapperTest {
     }
 
     @Test
-    void getUserRoleById() {
+    void getUserRoleById() throws SQLException {
+
+        System.out.println( userRoleMapper.getUserRoleById(1).get("roleName").toString());
     }
 
     @Test

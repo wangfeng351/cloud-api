@@ -3,7 +3,7 @@ package com.scs.soft.cloud.api.controller;
 import com.scs.soft.cloud.api.common.Result;
 import com.scs.soft.cloud.api.domain.dto.PageDto;
 import com.scs.soft.cloud.api.domain.dto.UserDto;
-import com.scs.soft.cloud.api.entity.User;
+import com.scs.soft.cloud.api.domain.vo.UserVo;
 import com.scs.soft.cloud.api.service.UserService;
 import com.scs.soft.cloud.api.util.UploadUtil;
 import io.swagger.annotations.Api;
@@ -35,11 +35,11 @@ public class UserController {
 
     @PutMapping(value = "/u/user")
     @ApiOperation(value = "修改账户信息")
-    Result updateUserById(@RequestBody User user){
+    Result updateUserById(@RequestBody UserVo user){
         return userService.updateUserById(user);
     }
 
-    @GetMapping(value = "/s/user")
+    @PostMapping(value = "/s/user")
     @ApiOperation(value = "查询所有账户信息")
     Result selectAllUser(@RequestBody PageDto pageDto){
         return userService.selectAllUser(pageDto);
@@ -50,5 +50,11 @@ public class UserController {
     Result deleteUserById(@RequestBody UserDto userDto){
         return userService.deleteUserById(userDto.getMobileList());
 
+    }
+
+    @PostMapping(value = "/p/user/single")
+    @ApiOperation(value = "插入单个用户")
+    Result insertSingleUser(@RequestBody UserVo userVo){
+        return userService.insertUser(userVo);
     }
 }

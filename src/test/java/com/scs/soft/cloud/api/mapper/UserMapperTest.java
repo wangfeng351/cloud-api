@@ -2,13 +2,19 @@ package com.scs.soft.cloud.api.mapper;
 
 import com.scs.soft.cloud.api.CloudApiApplication;
 import com.scs.soft.cloud.api.domain.dto.PageDto;
+import com.scs.soft.cloud.api.domain.dto.QueryDto;
+import com.scs.soft.cloud.api.domain.vo.UserVo;
 import com.scs.soft.cloud.api.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +35,7 @@ class UserMapperTest {
             User user = User.builder().activityNumber(1).avatar("123123").email("12312").mobile(String.valueOf(i)).build();
             users.add(user);
         }
-        userMapper.insertUser(users);
+        userMapper.batchInsert(users);
     }
 
     @Test
@@ -42,20 +48,35 @@ class UserMapperTest {
     }
 
     @Test
-    void deleteByUserId() throws SQLException {
-
+    void deleteByUserId() throws SQLException, ParseException {
+        /*formatter = new SimpleDateFormat( "yyyy-MM-dd ");
+        Date date = formatter.parse("2013-1-1");
+        System.out.println(date);*/
     }
 
     @Test
     void updateUserById() throws SQLException {
-        /*User user1 = userMapper.getUserById(10);
+        /*UserVo user1 = userMapper.getUserById(10);
         user1.setName("陶永新");
         user1.setGender("女");
         userMapper.updateUserById(user1);*/
-        String id = "1,2, 3,4";
-        String[] id1= id.split(",");
-        for(String i : id1){
-            System.out.println(i);
-        }
+        UserVo userVo = UserVo.builder().id(3).name("颜子皓").build();
+        userMapper.updateUserById(userVo);
+
+    }
+
+    @Test
+    void getUserById() throws SQLException {
+        QueryDto queryDto = QueryDto.builder().field("17826012341").build();
+        System.out.println(userMapper.getUserById(queryDto));
+    }
+
+    @Test
+    void testInsertUser() throws SQLException {
+        Date current_date = new Date();
+        //设置日期格式化样式为：yyyy-MM-dd
+        SimpleDateFormat SimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        User user = User.builder().birthday(current_date).mobile("123").createTime(LocalDateTime.now()).build();
+        userMapper.insertUser(user);
     }
 }

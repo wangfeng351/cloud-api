@@ -2,7 +2,6 @@ package com.scs.soft.cloud.api.service.Impl;
 
 import com.scs.soft.cloud.api.common.Result;
 import com.scs.soft.cloud.api.common.ResultCode;
-import com.scs.soft.cloud.api.entity.UserLogin;
 import com.scs.soft.cloud.api.mapper.UserLoginMapper;
 import com.scs.soft.cloud.api.service.UserLoginService;
 import lombok.extern.slf4j.Slf4j;
@@ -37,17 +36,6 @@ public class UserLoginServiceImpl implements UserLoginService {
             return Result.success();
         } catch (SQLException e) {
             log.error("密码重置异常");
-            return Result.failure(ResultCode.DATABASE_ERROR);
-        }
-    }
-
-    @Override
-    public Result updateStatusByMobile(UserLogin userLogin) {
-        try {
-            userLoginMapper.updateStatusByMobile(userLogin);
-            return Result.success();
-        } catch (SQLException e) {
-            log.error("修改账户状态异常");
             return Result.failure(ResultCode.DATABASE_ERROR);
         }
     }

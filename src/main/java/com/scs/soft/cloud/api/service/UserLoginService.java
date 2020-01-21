@@ -1,7 +1,6 @@
 package com.scs.soft.cloud.api.service;
 
 import com.scs.soft.cloud.api.common.Result;
-import com.scs.soft.cloud.api.entity.UserLogin;
 
 /**
  * @author wf
@@ -17,10 +16,4 @@ public interface UserLoginService {
      */
     Result updateUserLoginPasswordByMobile(String mobiles);
 
-    /**
-     * 修改账户状态
-     * @param userLogin
-     * @return
-     */
-    Result updateStatusByMobile(UserLogin userLogin);
 }

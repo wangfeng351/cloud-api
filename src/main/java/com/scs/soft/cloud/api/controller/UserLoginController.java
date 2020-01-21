@@ -2,7 +2,6 @@ package com.scs.soft.cloud.api.controller;
 
 import com.scs.soft.cloud.api.common.Result;
 import com.scs.soft.cloud.api.domain.dto.UserDto;
-import com.scs.soft.cloud.api.entity.UserLogin;
 import com.scs.soft.cloud.api.service.UserLoginService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,9 +30,4 @@ public class UserLoginController {
        return userLoginService.updateUserLoginPasswordByMobile(userDto.getMobileList());
     }
 
-    @PutMapping(value = "/p/status")
-    @ApiOperation(value = "修改账户状态")
-    Result updateStatusByMobile(@RequestBody UserLogin userLogin){
-        return userLoginService.updateStatusByMobile(userLogin);
-    }
 }

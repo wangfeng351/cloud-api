@@ -2,7 +2,7 @@ package com.scs.soft.cloud.api.service;
 
 import com.scs.soft.cloud.api.common.Result;
 import com.scs.soft.cloud.api.domain.dto.PageDto;
-import com.scs.soft.cloud.api.entity.User;
+import com.scs.soft.cloud.api.domain.vo.UserVo;
 
 import java.io.File;
 
@@ -36,5 +36,12 @@ public interface UserService {
      * 修改账户信息
      * @return
      */
-    Result updateUserById(User user);
+    Result updateUserById(UserVo userVo);
+
+    /**
+     * 新增账户
+     * @param userVo
+     * @return
+     */
+    Result insertUser(UserVo userVo);
 }

@@ -1,6 +1,8 @@
 package com.scs.soft.cloud.api.mapper;
 
 import com.scs.soft.cloud.api.domain.dto.PageDto;
+import com.scs.soft.cloud.api.domain.dto.QueryDto;
+import com.scs.soft.cloud.api.domain.vo.UserVo;
 import com.scs.soft.cloud.api.entity.User;
 import org.apache.ibatis.annotations.*;
 
@@ -30,7 +32,7 @@ public interface UserMapper {
             "</foreach>" +
             "</script>")
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    void insertUser (@Param(value = "userList") List<User> userList) throws SQLException;
+    void batchInsert (@Param(value = "userList") List<User> userList) throws SQLException;
 
     /*查询所有用户*/
     @Select("SELECT * FROM t_user " +
@@ -50,13 +52,32 @@ public interface UserMapper {
     void deleteByUserId(@Param("mobileList") List<String> mobileList) throws SQLException;
 
     /*根据id查询用户信息*/
-    @Select("SELECT * FROM t_user WHERE id=#{id}")
-    User getUserById(@Param("id") int id) throws SQLException;
+    @Select("<script>" +
+            "SELECT * FROM t_user " +
+            "WHERE 1=1" +
+            "<when test='queryDto.id!=null'>" +
+            "AND id=#{queryDto.id} " +
+            "</when>" +
+            "<when test='queryDto.field!=null'>" +
+            "AND mobile=#{queryDto.field} " +
+            "</when>" +
+            "</script>")
+    Map<String, Object> getUserById(@Param("queryDto") QueryDto queryDto) throws SQLException;
 
     /*根据id修改数据*/
     @Update("UPDATE t_user SET email=#{email},name=#{name},gender=#{gender}," +
-            "school=#{school},faculty=#{faculty},job_number=#{jobNumber},birthday=#{birthday}" +
+            "school=#{school},faculty=#{faculty},job_number=#{jobNumber} " +
             "WHERE id=#{id}")
-    void updateUserById(User user) throws SQLException;
+    void updateUserById(UserVo userVo) throws SQLException;
 
+    /**
+     * 新增用户信息
+     * @param user
+     * @throws SQLException
+     */
+    @Insert("INSERT INTO t_user VALUES (null,#{mobile},#{nickname},#{email},#{name},#{gender}," +
+            "#{school},#{faculty},#{jobNumber},#{experience},#{charisma}, " +
+            "#{joinClassNumber},#{createClassNumber},#{resourceNumber}, " +
+            "#{activityNumber},#{createTime},#{avatar},#{profession},#{birthday})")
+    void insertUser(User user) throws SQLException;
 }

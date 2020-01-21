@@ -1,5 +1,6 @@
 package com.scs.soft.cloud.api.mapper;
 
+import com.scs.soft.cloud.api.domain.vo.UserVo;
 import com.scs.soft.cloud.api.entity.UserRole;
 import org.apache.ibatis.annotations.*;
 
@@ -25,12 +26,12 @@ public interface UserRoleMapper {
 
     /**
      * 根据id查询用户角色信息
-     * @param id
+     * @param userId
      * @return
      * @throws SQLException
      */
-    @Select("SELECT * FROM t_user_role WHERE user_id=#{id}")
-    Map<String, Object> getUserRoleById(@Param("id") int id) throws SQLException;
+    @Select("SELECT * FROM t_user_role WHERE user_id=#{userId}")
+    Map<String, Object> getUserRoleById(@Param("userId") int userId) throws SQLException;
 
     /**
      * 根据id删除用户角色
@@ -50,9 +51,9 @@ public interface UserRoleMapper {
 
     /**
      * 根据用户id修改角色信息
-     * @param userRole
+     * @param userVo
      * @throws SQLException
      */
-    @Update("UPDATE t_user_role SET role_id=#{roId} WHERE user_id=#{userId}")
-    void updateUserRoleByUserId(UserRole userRole) throws SQLException;
+    @Update("UPDATE t_user_role SET role_id=#{roleId} WHERE user_id=#{id}")
+    void updateUserRoleByUserId(UserVo userVo) throws SQLException;
 }
