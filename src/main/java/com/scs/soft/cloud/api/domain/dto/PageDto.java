@@ -13,4 +13,5 @@ import lombok.Data;
 public class PageDto {
     private Integer pageSize;
     private Integer currentPage;
+    private String year;
 }

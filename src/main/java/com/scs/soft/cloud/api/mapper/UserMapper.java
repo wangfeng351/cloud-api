@@ -76,8 +76,22 @@ public interface UserMapper {
      * @throws SQLException
      */
     @Insert("INSERT INTO t_user VALUES (null,#{mobile},#{nickname},#{email},#{name},#{gender}," +
-            "#{school},#{faculty},#{jobNumber},#{experience},#{charisma}, " +
+            "#{school},#{faculty},#{Q},#{experience},#{charisma}, " +
             "#{joinClassNumber},#{createClassNumber},#{resourceNumber}, " +
             "#{activityNumber},#{createTime},#{avatar},#{profession},#{birthday})")
     void insertUser(User user) throws SQLException;
+
+    /**
+     * 某年月注册量视图
+     * @param year
+     * @return
+     * @throws SQLException
+     */
+    @Select("SELECT MONTH(create_time) AS 'month' , COUNT(*) AS 'count' FROM t_user " +
+            "WHERE YEAR(create_time)=#{year} GROUP BY YEAR (create_time) DESC, MONTH(create_time)")
+   List<Map<String, Object>> getUserByMonth(@Param("year") String year) throws SQLException;
+
+    @Select("SELECT school AS 'schoolName' , COUNT(*) AS 'peoperNumber' FROM t_user " +
+            "GROUP BY school ")
+    List<Map<String, Object>> getUserSchool() throws SQLException;
 }

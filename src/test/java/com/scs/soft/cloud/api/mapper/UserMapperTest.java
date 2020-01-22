@@ -79,4 +79,16 @@ class UserMapperTest {
         User user = User.builder().birthday(current_date).mobile("123").createTime(LocalDateTime.now()).build();
         userMapper.insertUser(user);
     }
+
+    @Test
+    void getUserByMonth() throws SQLException {
+        List<Map<String, Object>> map = userMapper.getUserByMonth("2020");
+        System.out.println(map);
+    }
+
+    @Test
+    void getUserSchool() throws SQLException {
+        List<Map<String, Object>> map = userMapper.getUserSchool();
+        System.out.println(map);
+    }
 }

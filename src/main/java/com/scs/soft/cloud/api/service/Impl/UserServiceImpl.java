@@ -20,10 +20,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author wf
@@ -89,6 +86,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Result selectAllUser(PageDto pageDto) {
         List<Map<String, Object>> users = new ArrayList<>();
+        Map<String, Object> maps = new HashMap<>();
         Map<String, Object> map;
         try {
             users = userMapper.selectUser(pageDto);
@@ -103,12 +101,17 @@ public class UserServiceImpl implements UserService {
                 user.put("status", map.get("status"));
                 }
             }
+            if(users != null){
+            maps.put("selectUserApi", users);
+            maps.put("schoolApi",userMapper.getUserSchool());
+            maps.put("registerApi", userMapper.getUserByMonth(pageDto.getYear()));
+            }
         } catch (SQLException e) {
             log.error("查询所有用户信息异常");
             return Result.failure(ResultCode.DATABASE_ERROR);
         }
-        if(users != null){
-            return Result.success(users);
+        if(maps != null){
+            return Result.success(maps);
         }
         return Result.failure(ResultCode.DATABASE_ERROR);
     }
