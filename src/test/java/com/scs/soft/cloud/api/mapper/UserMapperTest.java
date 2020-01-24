@@ -91,4 +91,10 @@ class UserMapperTest {
         List<Map<String, Object>> map = userMapper.getUserSchool();
         System.out.println(map);
     }
+
+    @Test
+    void getUserBy() throws SQLException {
+        PageDto pageDto = PageDto.builder().year("王").currentPage(1).pageSize(5).build();
+        System.out.println(userMapper.getUserBy(pageDto));
+    }
 }

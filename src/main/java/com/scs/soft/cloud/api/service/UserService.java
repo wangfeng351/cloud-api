@@ -5,6 +5,8 @@ import com.scs.soft.cloud.api.domain.dto.PageDto;
 import com.scs.soft.cloud.api.domain.vo.UserVo;
 
 import java.io.File;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author wf
@@ -44,4 +46,17 @@ public interface UserService {
      * @return
      */
     Result insertUser(UserVo userVo);
+
+    /**
+     * 模糊分页查询
+     * @param pageDto
+     * @return
+     */
+    Result getUserBy(PageDto pageDto);
+
+    /**
+     * 查询所有用户
+     * @return
+     */
+    List<Map<String, Object>> selectAllUser1(PageDto pageDto);
 }

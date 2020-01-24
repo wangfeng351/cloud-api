@@ -1,19 +1,19 @@
 package com.scs.soft.cloud.api.util;
 
+import com.scs.soft.cloud.api.domain.dto.PageDto;
 import com.scs.soft.cloud.api.entity.User;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import com.scs.soft.cloud.api.service.UserService;
+import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.*;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import javax.annotation.Resource;
+import java.io.*;
 import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author wf
@@ -21,6 +21,8 @@ import java.util.List;
  * @description TODO
  */
 public class ImportDataUtil {
+    @Resource
+    private static UserService userService;
 
     public static List<User> readExcel2(File file) {
         List<User> list = new ArrayList<>();
@@ -111,5 +113,55 @@ public class ImportDataUtil {
             list.add(user);
         }
         return list;
+    }
+
+    public static void createExcel(File file) throws IOException {
+        String filePath = file + "账户信息表.xls";
+        OutputStream outputStream = new FileOutputStream(filePath);
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("Sheet1");
+        HSSFRow row = sheet.createRow(0);
+        row.createCell(0).setCellValue("教工号");
+        row.createCell(1).setCellValue("用户名");
+        row.createCell(2).setCellValue("性别");
+        row.createCell(3).setCellValue("角色");
+        row.createCell(4).setCellValue("电话");
+        row.createCell(5).setCellValue("邮箱");
+        row.createCell(5).setCellValue("学校");
+        row.createCell(5).setCellValue("院系");
+        row.setHeightInPoints(30); // 设置行的高度
+
+        List<Map<String, Object>> maps = new ArrayList<>();
+        PageDto pageDto = PageDto.builder().currentPage(1).pageSize(1000).build();
+        maps = userService.selectAllUser1(pageDto);
+        System.out.println(maps.size());
+        int i = -1;
+        int len = maps.size();
+        while (++i <= len){
+            HSSFRow row1 = sheet.createRow(i+1);
+            row1.createCell(0).setCellValue(maps.get(i).get("jobNumber").toString());
+            row1.createCell(1).setCellValue(maps.get(i).get("name").toString());
+            row1.createCell(2).setCellValue(maps.get(i).get("gender").toString());
+            row1.createCell(3).setCellValue(maps.get(i).get("roleName").toString());
+            row1.createCell(4).setCellValue(maps.get(i).get("mobile").toString());
+            row1.createCell(5).setCellValue(maps.get(i).get("email").toString());
+            row1.createCell(6).setCellValue(maps.get(i).get("school").toString());
+            row1.createCell(7).setCellValue(maps.get(i).get("faculty").toString());
+        }
+
+        // 日期格式化
+        HSSFCellStyle cellStyle2 = workbook.createCellStyle();
+        HSSFCreationHelper creationHelper = workbook.getCreationHelper();
+        cellStyle2.setDataFormat(creationHelper.createDataFormat().getFormat("yyyy-MM-dd HH:mm:ss"));
+        sheet.setColumnWidth(2, 20 * 256); // 设置列的宽度
+
+        workbook.setActiveSheet(0);
+        workbook.write(outputStream);
+        outputStream.close();
+    }
+
+    public static void main(String[] args) throws IOException {
+        File file = new File("E:\\");
+        createExcel(file);
     }
 }

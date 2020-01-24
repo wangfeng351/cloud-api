@@ -57,4 +57,11 @@ public class UserController {
     Result insertSingleUser(@RequestBody UserVo userVo){
         return userService.insertUser(userVo);
     }
+
+    @PostMapping(value = "/g/user/blur")
+    @ApiOperation(value = "模糊查询用户信息")
+    Result getUserBy(@RequestBody PageDto pageDto){
+        return userService.getUserBy(pageDto);
+    }
+
 }

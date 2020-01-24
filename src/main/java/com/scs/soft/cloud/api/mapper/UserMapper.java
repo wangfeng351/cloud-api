@@ -39,6 +39,9 @@ public interface UserMapper {
             "LIMIT ${pageDto.pageSize*(pageDto.currentPage-1)},#{pageDto.pageSize}")
     List<Map<String, Object>> selectUser(@Param("pageDto") PageDto pageDto) throws SQLException;
 
+    @Select("SELECT * FROM t_user ")
+    List<Map<String, Object>> selectUser1() throws SQLException;
+
     /*批量删除*/
     @Delete({"<script>",
             "DELETE",
@@ -76,7 +79,7 @@ public interface UserMapper {
      * @throws SQLException
      */
     @Insert("INSERT INTO t_user VALUES (null,#{mobile},#{nickname},#{email},#{name},#{gender}," +
-            "#{school},#{faculty},#{Q},#{experience},#{charisma}, " +
+            "#{school},#{faculty},#{jobNumber},#{experience},#{charisma}, " +
             "#{joinClassNumber},#{createClassNumber},#{resourceNumber}, " +
             "#{activityNumber},#{createTime},#{avatar},#{profession},#{birthday})")
     void insertUser(User user) throws SQLException;
@@ -91,7 +94,29 @@ public interface UserMapper {
             "WHERE YEAR(create_time)=#{year} GROUP BY YEAR (create_time) DESC, MONTH(create_time)")
    List<Map<String, Object>> getUserByMonth(@Param("year") String year) throws SQLException;
 
-    @Select("SELECT school AS 'schoolName' , COUNT(*) AS 'peoperNumber' FROM t_user " +
+    /**
+     * 学校分布统计视图
+     * @return
+     * @throws SQLException
+     */
+    @Select("SELECT school AS 'schoolName' , COUNT(*) AS 'peopleNumber' FROM t_user " +
             "GROUP BY school ")
     List<Map<String, Object>> getUserSchool() throws SQLException;
+
+    /**
+     * 模糊查询（根据手机号，用户昵称或角色id）
+     * @param pageDto
+     * @return
+     * @throws SQLException
+     */
+    @Select("<script>" +
+            "SELECT * FROM t_user " +
+            "WHERE 1=1 " +
+            "<when test='pageDto.year!=null'>" +
+            "AND mobile LIKE CONCAT('%', #{pageDto.year}, '%')" +
+            "OR  name LIKE CONCAT('%', #{pageDto.year}, '%') " +
+            "</when> " +
+            "LIMIT ${pageDto.pageSize*(pageDto.currentPage-1)},#{pageDto.pageSize} " +
+            "</script>")
+    List<UserVo> getUserBy(@Param("pageDto") PageDto pageDto) throws SQLException;
 }

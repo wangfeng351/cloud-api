@@ -190,4 +190,42 @@ public class UserServiceImpl implements UserService {
             return Result.failure(ResultCode.DATABASE_ERROR);
         }
     }
+
+    @Override
+    public Result getUserBy(PageDto pageDto) {
+        List<UserVo> list = new ArrayList<>();
+        try {
+            list = userMapper.getUserBy(pageDto);
+        } catch (SQLException e) {
+            log.error("用户模糊查询异常");
+            return Result.failure(ResultCode.DATABASE_ERROR);
+        }
+        if(list != null){
+            return Result.success(list);
+        }
+        return Result.failure(ResultCode.DATA_IS_WRONG);
+    }
+
+    @Override
+    public List<Map<String, Object>>  selectAllUser1(PageDto pageDto) {
+        List<Map<String, Object>> users = new ArrayList<>();
+        Map<String, Object> map;
+        try {
+            users = userMapper.selectUser(pageDto);
+            int len = users.size();
+            for (Map<String, Object> user : users) {
+                map = userRoleMapper.getUserRoleById(Integer.parseInt(user.get("id").toString()));
+                map = roleMapper.getRoleById(Integer.parseInt(map.get("role_id").toString()));
+                user.put("roleName",map.get("name"));
+                map = userLoginMapper.getUserLoginByMobile(user.get("mobile").toString());
+                /*map报空异常*/
+                if(map != null){
+                    user.put("status", map.get("status"));
+                }
+            }
+        } catch (SQLException e) {
+            log.error("查询所有用户信息异常");
+        }
+        return users;
+    }
 }
