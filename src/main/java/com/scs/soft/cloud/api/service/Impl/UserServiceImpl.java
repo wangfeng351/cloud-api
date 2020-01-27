@@ -86,10 +86,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public Result selectAllUser(PageDto pageDto) {
         List<Map<String, Object>> users = new ArrayList<>();
+        List<Map<String, Object>> enableUsers = new ArrayList<>();
+        List<Map<String, Object>> disableUsers = new ArrayList<>();
         Map<String, Object> maps = new HashMap<>();
         Map<String, Object> map;
         try {
-            users = userMapper.selectUser(pageDto);
+            users = userMapper.selectUser1();
             int len = users.size();
             for (Map<String, Object> user : users) {
                 map = userRoleMapper.getUserRoleById(Integer.parseInt(user.get("id").toString()));
@@ -100,12 +102,21 @@ public class UserServiceImpl implements UserService {
                 if(map != null){
                 user.put("status", map.get("status"));
                 }
+                if(userLoginMapper.getEnableUser(user.get("mobile").toString()) == null){
+                    disableUsers.add(user);
+                }else {
+                    enableUsers.add(user);
+                }
             }
+
             if(users != null){
             maps.put("selectUserApi", users);
+            maps.put("disableUserApi", disableUsers);
+            maps.put("enableUserApi", enableUsers);
             maps.put("schoolApi",userMapper.getUserSchool());
             maps.put("registerApi", userMapper.getUserByMonth(pageDto.getYear()));
             }
+
         } catch (SQLException e) {
             log.error("查询所有用户信息异常");
             return Result.failure(ResultCode.DATABASE_ERROR);
@@ -207,10 +218,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Map<String, Object>>  selectAllUser1(PageDto pageDto) {
+    public Result exportUserInformation() {
+
         List<Map<String, Object>> users = new ArrayList<>();
         Map<String, Object> map;
         try {
+            int n = userMapper.selectUser1().size();
+            PageDto pageDto = PageDto.builder().pageSize(n).currentPage(1).build();
             users = userMapper.selectUser(pageDto);
             int len = users.size();
             for (Map<String, Object> user : users) {
@@ -225,7 +239,18 @@ public class UserServiceImpl implements UserService {
             }
         } catch (SQLException e) {
             log.error("查询所有用户信息异常");
+            return Result.failure(ResultCode.DATABASE_ERROR);
         }
-        return users;
+        if(users.size() != 0){
+            File file = new File("E:\\");
+            try {
+                ImportDataUtil.createExcel(file, users);
+                return Result.success();
+            } catch (IOException e) {
+                log.error("信息导出异常");
+                return Result.failure(ResultCode.DATA_IS_WRONG);
+            }
+        }
+        return Result.failure(ResultCode.DATA_IS_WRONG);
     }
 }

@@ -34,15 +34,29 @@ public interface UserMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void batchInsert (@Param(value = "userList") List<User> userList) throws SQLException;
 
-    /*查询所有用户*/
+    /**
+     * 分页查询所有用户信息
+     * @param pageDto
+     * @return List<Map<String, Object>> maps
+     * @throws SQLException
+     */
     @Select("SELECT * FROM t_user " +
             "LIMIT ${pageDto.pageSize*(pageDto.currentPage-1)},#{pageDto.pageSize}")
     List<Map<String, Object>> selectUser(@Param("pageDto") PageDto pageDto) throws SQLException;
 
+    /**
+     * 查询所有用户信息
+     * @return List<Map<String, Object>> maps
+     * @throws SQLException
+     */
     @Select("SELECT * FROM t_user ")
     List<Map<String, Object>> selectUser1() throws SQLException;
 
-    /*批量删除*/
+    /**
+     * 批量删除
+     * @param mobileList
+     * @throws SQLException
+     */
     @Delete({"<script>",
             "DELETE",
             "FROM t_user",
@@ -54,7 +68,12 @@ public interface UserMapper {
             "</script>"})
     void deleteByUserId(@Param("mobileList") List<String> mobileList) throws SQLException;
 
-    /*根据id查询用户信息*/
+    /**
+     * 根据id查询用户信息
+     * @param queryDto
+     * @return
+     * @throws SQLException
+     */
     @Select("<script>" +
             "SELECT * FROM t_user " +
             "WHERE 1=1" +
@@ -67,7 +86,11 @@ public interface UserMapper {
             "</script>")
     Map<String, Object> getUserById(@Param("queryDto") QueryDto queryDto) throws SQLException;
 
-    /*根据id修改数据*/
+    /**
+     * 根据id修改数据
+     * @param userVo
+     * @throws SQLException
+     */
     @Update("UPDATE t_user SET email=#{email},name=#{name},gender=#{gender}," +
             "school=#{school},faculty=#{faculty},job_number=#{jobNumber} " +
             "WHERE id=#{id}")
@@ -119,4 +142,5 @@ public interface UserMapper {
             "LIMIT ${pageDto.pageSize*(pageDto.currentPage-1)},#{pageDto.pageSize} " +
             "</script>")
     List<UserVo> getUserBy(@Param("pageDto") PageDto pageDto) throws SQLException;
+
 }

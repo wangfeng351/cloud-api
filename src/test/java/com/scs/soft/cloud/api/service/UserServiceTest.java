@@ -2,7 +2,6 @@ package com.scs.soft.cloud.api.service;
 
 import com.scs.soft.cloud.api.CloudApiApplication;
 import com.scs.soft.cloud.api.common.Result;
-import com.scs.soft.cloud.api.domain.dto.PageDto;
 import com.scs.soft.cloud.api.domain.vo.UserVo;
 import com.scs.soft.cloud.api.entity.User;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author wf
@@ -57,12 +55,10 @@ class UserServiceTest {
     }
 
     @Test
-    void selectAllUser() {
+    void selectAllUser() throws IOException {
        /* PageDto pageDto = PageDto.builder().currentPage(1).pageSize(5).year("2020").build();
         Result rs = userService.selectAllUser(pageDto);
         System.out.println(rs);*/
-        PageDto pageDto = PageDto.builder().currentPage(1).pageSize(1000).build();
-        List<Map<String, Object>> maps = userService.selectAllUser1(pageDto);
-        System.out.println(maps.size());
+
     }
 }

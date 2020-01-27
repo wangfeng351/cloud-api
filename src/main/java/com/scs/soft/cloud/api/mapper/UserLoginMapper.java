@@ -78,4 +78,21 @@ public interface UserLoginMapper {
             "</foreach>",
             "</script>"})
     void deleteUserLoginByMobile(@Param("mobileList") List<String> mobileList) throws SQLException;
+
+    /**
+     * 查询被禁用用户视图
+     * @return
+     * @throws SQLException
+     */
+    @Select("SELECT mobile FROM t_user_login WHERE mobile=#{mobile} AND status=0 ")
+    Map<String, Object> getDisableUserBy(@Param("mobile") String mobile) throws SQLException;
+
+    /**
+     * 查询未被禁用用户视图
+     * @return
+     * @throws SQLException
+     */
+    @Select("SELECT mobile FROM t_user_login WHERE mobile=#{mobile} AND status=1 ")
+    Map<String, Object> getEnableUser(@Param("mobile") String mobile) throws SQLException;
+
 }

@@ -58,10 +58,16 @@ public class UserController {
         return userService.insertUser(userVo);
     }
 
-    @PostMapping(value = "/g/user/blur")
+    @PostMapping(value = "/p/user/blur")
     @ApiOperation(value = "模糊查询用户信息")
     Result getUserBy(@RequestBody PageDto pageDto){
         return userService.getUserBy(pageDto);
+    }
+
+    @PostMapping(value = "/p/export/user")
+    @ApiOperation(value = "导出用户信息")
+    Result download(){
+        return userService.exportUserInformation();
     }
 
 }

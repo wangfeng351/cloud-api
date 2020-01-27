@@ -5,8 +5,6 @@ import com.scs.soft.cloud.api.domain.dto.PageDto;
 import com.scs.soft.cloud.api.domain.vo.UserVo;
 
 import java.io.File;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author wf
@@ -55,8 +53,8 @@ public interface UserService {
     Result getUserBy(PageDto pageDto);
 
     /**
-     * 查询所有用户
+     * 导出所有用户信息，默认E盘根目录
      * @return
      */
-    List<Map<String, Object>> selectAllUser1(PageDto pageDto);
+    Result exportUserInformation();
 }

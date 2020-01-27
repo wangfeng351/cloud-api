@@ -40,11 +40,12 @@ class UserMapperTest {
 
     @Test
     void selectUser() throws SQLException {
-        PageDto pageDto = PageDto.builder().pageSize(1).currentPage(1).build();
+        /*PageDto pageDto = PageDto.builder().pageSize(1).currentPage(1).build();
         List<Map<String, Object>> list = userMapper.selectUser(pageDto);
         for(Map<String, Object> map : list){
             System.out.println(map);
-        }
+        }*/
+        System.out.println(userMapper.selectUser1().size());
     }
 
     @Test
