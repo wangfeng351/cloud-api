@@ -6,6 +6,7 @@ import com.scs.soft.cloud.api.domain.dto.PageDto;
 import com.scs.soft.cloud.api.domain.dto.QueryDto;
 import com.scs.soft.cloud.api.domain.vo.UserVo;
 import com.scs.soft.cloud.api.entity.User;
+import com.scs.soft.cloud.api.entity.UserClass;
 import com.scs.soft.cloud.api.entity.UserLogin;
 import com.scs.soft.cloud.api.entity.UserRole;
 import com.scs.soft.cloud.api.mapper.*;
@@ -40,6 +41,10 @@ public class UserServiceImpl implements UserService {
     private UserRoleMapper userRoleMapper;
     @Resource
     private RoleMapper roleMapper;
+    @Resource
+    private ClassMapper classMapper;
+    @Resource
+    private UserClassMapper userClassMapper;
 
     @Override
     public Result ExportUserInformation(File file) {
@@ -131,7 +136,6 @@ public class UserServiceImpl implements UserService {
     public Result deleteUserById(String idList) {
         List<String> list = new ArrayList<>();
         List<Integer> list1 = new ArrayList<>();
-
         try {
             String[] id = idList.split(",");
             for(String i : id){
@@ -144,6 +148,8 @@ public class UserServiceImpl implements UserService {
             userRoleMapper.deleteUserRoleById(list1);
             userLoginMapper.deleteUserLoginByMobile(list);
             userMapper.deleteByUserId(list);
+            classMapper.deleteClassByCreatorId(list1);
+            userClassMapper.deleteUserClassByUserId(list1);
             return Result.success();
         } catch (SQLException e) {
             log.error("删除账户信息异常");
@@ -161,7 +167,10 @@ public class UserServiceImpl implements UserService {
              userMapper.updateUserById(userVo);
              userLoginMapper.updateStatusByMobile(userVo);
              userRoleMapper.updateUserRoleByUserId(userVo);
-             return Result.success();
+            UserClass userClass = UserClass.builder().userId(userVo.getId())
+                    .roleId(userVo.getRoleId()).build();
+            userClassMapper.updateUserClass(userClass);
+            return Result.success();
         } catch (SQLException e) {
             log.error("账户信息修改异常");
             return Result.failure(ResultCode.DATABASE_ERROR);

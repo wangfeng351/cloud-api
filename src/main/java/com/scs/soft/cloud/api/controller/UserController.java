@@ -48,7 +48,7 @@ public class UserController {
     @DeleteMapping(value = "/d/user")
     @ApiOperation(value = "批量删除账户信息")
     Result deleteUserById(@RequestBody UserDto userDto){
-        return userService.deleteUserById(userDto.getMobileList());
+        return userService.deleteUserById(userDto.getFieldList());
 
     }
 
@@ -64,7 +64,7 @@ public class UserController {
         return userService.getUserBy(pageDto);
     }
 
-    @PostMapping(value = "/p/export/user")
+    @GetMapping(value = "/p/export/user")
     @ApiOperation(value = "导出用户信息")
     Result download(){
         return userService.exportUserInformation();

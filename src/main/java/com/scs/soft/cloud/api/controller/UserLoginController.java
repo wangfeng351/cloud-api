@@ -27,7 +27,7 @@ public class UserLoginController {
     @PutMapping(value = "/u/password")
     @ApiOperation(value = "重置密码")
     Result resetPassword(@RequestBody UserDto userDto){
-       return userLoginService.updateUserLoginPasswordByMobile(userDto.getMobileList());
+       return userLoginService.updateUserLoginPasswordByMobile(userDto.getFieldList());
     }
 
 }
