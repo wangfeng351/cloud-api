@@ -5,10 +5,7 @@ import com.scs.soft.cloud.api.common.ResultCode;
 import com.scs.soft.cloud.api.domain.dto.PageDto;
 import com.scs.soft.cloud.api.domain.dto.QueryDto;
 import com.scs.soft.cloud.api.domain.vo.UserVo;
-import com.scs.soft.cloud.api.entity.User;
-import com.scs.soft.cloud.api.entity.UserClass;
-import com.scs.soft.cloud.api.entity.UserLogin;
-import com.scs.soft.cloud.api.entity.UserRole;
+import com.scs.soft.cloud.api.entity.*;
 import com.scs.soft.cloud.api.mapper.*;
 import com.scs.soft.cloud.api.service.UserService;
 import com.scs.soft.cloud.api.util.ImportDataUtil;
@@ -45,6 +42,10 @@ public class UserServiceImpl implements UserService {
     private ClassMapper classMapper;
     @Resource
     private UserClassMapper userClassMapper;
+    @Resource
+    private ResourceMapper resourceMapper;
+    @Resource
+    private UserResourceMapper userResourceMapper;
 
     @Override
     public Result ExportUserInformation(File file) {
@@ -150,6 +151,8 @@ public class UserServiceImpl implements UserService {
             userMapper.deleteByUserId(list);
             classMapper.deleteClassByCreatorId(list1);
             userClassMapper.deleteUserClassByUserId(list1);
+            resourceMapper.deleteResourceByCreatorId(list1);
+            userResourceMapper.deleteUserResourceByUserId(list1);
             return Result.success();
         } catch (SQLException e) {
             log.error("删除账户信息异常");

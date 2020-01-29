@@ -1,48 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="564f0f62-169a-4128-846c-170f4c44ffaa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/controller/RoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/controller/RolePermissionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/domain/RolePermissionQueryDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/entity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/entity/RolePermission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/CommonMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/RoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/RolePermissionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/Impl/RolePermissionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/Impl/RoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/RolePermissionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/RoleMapperTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/RolePermissionMapperTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/service/Impl/RoleServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/service/RolePermissionServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/controller/PermissionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/PermissionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/Impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/Impl/PermissionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/PermissionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/PermissionMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/PermissionMapperTest.java" afterDir="false" />
+    <list default="true" id="564f0f62-169a-4128-846c-170f4c44ffaa" name="Default Changelist" comment="数据导出，账户模糊查询">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/wf.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jaxen_jaxen_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/controller/ResourceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/entity/Resource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/entity/UserResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/ResourceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/mapper/UserResourceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/Impl/ResourceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/ResourceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/ClassMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/ResourceMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/UserClassMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/service/ClassServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/controller/ClassController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/controller/ResourceController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/domain/vo/ClassVo$ClassVoBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/domain/vo/ClassVo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/entity/Class$ClassBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/entity/Class.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/entity/Resource$ResourceBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/entity/Resource.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/entity/UserClass$UserClassBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/entity/UserClass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/entity/UserResource$UserResourceBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/entity/UserResource.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/mapper/ClassMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/mapper/ResourceMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/mapper/UserClassMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/mapper/UserResourceMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/service/ClassService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/service/Impl/ClassServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/service/Impl/ResourceServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/service/ResourceService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/scs/soft/cloud/api/mapper/ClassMapperTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/scs/soft/cloud/api/mapper/ResourceMapperTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/scs/soft/cloud/api/mapper/UserClassMapperTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/scs/soft/cloud/api/service/ClassServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/soft/cloud/api/service/Impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/UserMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/scs/soft/cloud/api/mapper/UserMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/controller/UserLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/controller/UserLoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/domain/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/domain/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/mapper/UserLoginMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/mapper/UserLoginMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/service/Impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/service/Impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/util/ImportDataUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scs/soft/cloud/api/util/ImportDataUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/scs/soft/cloud/api/mapper/UserMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/scs/soft/cloud/api/mapper/UserMapperTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/scs/soft/cloud/api/service/UserServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/scs/soft/cloud/api/service/UserServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -56,6 +103,11 @@
         <option name="mavenHome" value="E:/apache-maven-3.6.2" />
         <option name="userSettingsFile" value="E:\apache-maven-3.6.2\conf\settings.xml" />
       </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="1WPplTYQNuPscAS2yqD55s0T1R9" />
@@ -77,13 +129,14 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="F:/space-api" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="last_opened_file_path" value="F:/学习/java-study" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.scs.soft.cloud.api.service" />
       <recent name="com.scs.soft.cloud.api.mapper" />
+      <recent name="com.scs.soft.cloud.api.service" />
       <recent name="com.scs.soft.cloud.api.service.Impl" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -98,23 +151,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.CloudApiApplication">
-    <configuration name="PermissionServiceTest.deletePermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cloud-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.scs.soft.cloud.api.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.service" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.service.PermissionServiceTest" />
-      <option name="METHOD_NAME" value="deletePermission" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RolePermissionMapperTest.deleteRolePermissionById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClassMapperTest.updateClassById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloud-api" />
       <extension name="coverage">
         <pattern>
@@ -123,30 +160,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.mapper" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.mapper.RolePermissionMapperTest" />
-      <option name="METHOD_NAME" value="deleteRolePermissionById" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.mapper.ClassMapperTest" />
+      <option name="METHOD_NAME" value="updateClassById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RolePermissionMapperTest.getRolePermissionById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cloud-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.scs.soft.cloud.api.mapper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.mapper" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.mapper.RolePermissionMapperTest" />
-      <option name="METHOD_NAME" value="getRolePermissionById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RolePermissionServiceTest.getRolePermissionByRoId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClassServiceTest.selectAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloud-api" />
       <extension name="coverage">
         <pattern>
@@ -155,24 +176,56 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.service" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.service.RolePermissionServiceTest" />
-      <option name="METHOD_NAME" value="getRolePermissionByRoId" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.service.ClassServiceTest" />
+      <option name="METHOD_NAME" value="selectAll" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoleServiceImplTest.deleteRoleById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ResourceMapperTest.getResource" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cloud-api" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.scs.soft.cloud.api.service.Impl.*" />
+          <option name="PATTERN" value="com.scs.soft.cloud.api.mapper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.service.Impl" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.service.Impl.RoleServiceImplTest" />
-      <option name="METHOD_NAME" value="deleteRoleById" />
+      <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.mapper.ResourceMapperTest" />
+      <option name="METHOD_NAME" value="getResource" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserClassMapperTest.deleteUserClassByUserId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloud-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.scs.soft.cloud.api.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.mapper.UserClassMapperTest" />
+      <option name="METHOD_NAME" value="deleteUserClassByUserId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserMapperTest.selectUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cloud-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.scs.soft.cloud.api.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.scs.soft.cloud.api.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.soft.cloud.api.mapper.UserMapperTest" />
+      <option name="METHOD_NAME" value="selectUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -187,11 +240,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PermissionServiceTest.deletePermission" />
-        <item itemvalue="JUnit.RoleServiceImplTest.deleteRoleById" />
-        <item itemvalue="JUnit.RolePermissionMapperTest.deleteRolePermissionById" />
-        <item itemvalue="JUnit.RolePermissionServiceTest.getRolePermissionByRoId" />
-        <item itemvalue="JUnit.RolePermissionMapperTest.getRolePermissionById" />
+        <item itemvalue="JUnit.ResourceMapperTest.getResource" />
+        <item itemvalue="JUnit.UserClassMapperTest.deleteUserClassByUserId" />
+        <item itemvalue="JUnit.ClassServiceTest.selectAll" />
+        <item itemvalue="JUnit.UserMapperTest.selectUser" />
+        <item itemvalue="JUnit.ClassMapperTest.updateClassById" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +272,18 @@
       <updated>1579061234555</updated>
       <workItem from="1579061240362" duration="5099000" />
       <workItem from="1579141100365" duration="26855000" />
-      <workItem from="1579230878870" duration="19811000" />
+      <workItem from="1579230878870" duration="25679000" />
+      <workItem from="1579321084778" duration="4297000" />
+      <workItem from="1579336997096" duration="6835000" />
+      <workItem from="1579403546899" duration="55454000" />
+      <workItem from="1579574690500" duration="20663000" />
+      <workItem from="1579660842361" duration="9734000" />
+      <workItem from="1579701859277" duration="4074000" />
+      <workItem from="1579827065131" duration="86000" />
+      <workItem from="1579828368627" duration="10066000" />
+      <workItem from="1580102934637" duration="11150000" />
+      <workItem from="1580176418572" duration="20898000" />
+      <workItem from="1580269689896" duration="7757000" />
     </task>
     <task id="LOCAL-00001" summary="后端的搭建及权限的增删查接口">
       <created>1579184719090</created>
@@ -228,7 +292,70 @@
       <option name="project" value="LOCAL" />
       <updated>1579184719091</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="角色的增上改查接口，角色分配权限的接口">
+      <created>1579260000575</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579260000575</updated>
+    </task>
+    <task id="LOCAL-00003" summary="权限模糊查询接口">
+      <created>1579322820748</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1579322820748</updated>
+    </task>
+    <task id="LOCAL-00004" summary="修改角色分配权限接口及角色权限查询接口">
+      <created>1579357122664</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1579357122664</updated>
+    </task>
+    <task id="LOCAL-00005" summary="账户查询（分页），（批量）修改，（批量）删除，重置密码接口">
+      <created>1579542677746</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1579542677746</updated>
+    </task>
+    <task id="LOCAL-00006" summary="修改新增、删除、修改账户接口">
+      <created>1579588349892</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1579588349892</updated>
+    </task>
+    <task id="LOCAL-00007" summary="账户统计分析api">
+      <created>1579677656798</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1579677656798</updated>
+    </task>
+    <task id="LOCAL-00008" summary="数据导出，账户模糊查询">
+      <created>1579882161015</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1579882161015</updated>
+    </task>
+    <task id="LOCAL-00009" summary="修改并完善权限管理，账户管理模块接口">
+      <created>1580133506702</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1580133506702</updated>
+    </task>
+    <task id="LOCAL-00010" summary="班课管理页面查、删和改接口">
+      <created>1580211474856</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1580211474856</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,88 +363,137 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="后端的搭建及权限的增删查接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="后端的搭建及权限的增删查接口" />
+    <MESSAGE value="角色的增上改查接口，角色分配权限的接口" />
+    <MESSAGE value="权限模糊查询接口" />
+    <MESSAGE value="修改角色分配权限接口及角色权限查询接口" />
+    <MESSAGE value="账户查询（分页），（批量）修改，（批量）删除，重置密码接口" />
+    <MESSAGE value="修改新增、删除、修改账户接口" />
+    <MESSAGE value="账户统计分析api" />
+    <MESSAGE value="数据导出，账户模糊查询" />
+    <MESSAGE value="修改并完善权限管理，账户管理模块接口" />
+    <MESSAGE value="班课管理页面查、删和改接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="班课管理页面查、删和改接口" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser" timestamp="1579249686414">
+    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser" timestamp="1580275451933">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1579249686414" />
-    <state x="372" y="22" key="CommitChangelistDialog2" timestamp="1579184717326">
+    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1580275451933" />
+    <state x="389" y="111" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1579628947734">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="372" y="22" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1579184717326" />
-    <state x="549" y="188" key="FileChooserDialogImpl" timestamp="1579240681422">
+    <state x="389" y="111" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1536.864@0.0.1536.864" timestamp="1579628947734" />
+    <state x="548" y="291" width="460" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1579586227925">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="188" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1579240681422" />
-    <state width="1493" height="279" key="GridCell.Tab.0.bottom" timestamp="1579259719774">
+    <state x="548" y="291" width="460" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1579586227925" />
+    <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1579508963007">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579259719774" />
-    <state width="1493" height="279" key="GridCell.Tab.0.center" timestamp="1579259719774">
+    <state x="307" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1579508963007" />
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579584712847">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1579259719774" />
-    <state width="1493" height="279" key="GridCell.Tab.0.left" timestamp="1579259719774">
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1579584712847" />
+    <state x="372" y="22" key="CommitChangelistDialog2" timestamp="1580211473265">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1579259719774" />
-    <state width="1493" height="279" key="GridCell.Tab.0.right" timestamp="1579259719774">
+    <state x="372" y="22" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1580211473265" />
+    <state x="549" y="188" key="FileChooserDialogImpl" timestamp="1580223848906">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1579259719774" />
-    <state width="1493" height="279" key="GridCell.Tab.1.bottom" timestamp="1579259719775">
+    <state x="549" y="188" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1580223848906" />
+    <state width="1493" height="309" key="GridCell.Tab.0.bottom" timestamp="1580278722931">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579259719775" />
-    <state width="1493" height="279" key="GridCell.Tab.1.center" timestamp="1579259719775">
+    <state width="1493" height="309" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580278722931" />
+    <state width="1493" height="309" key="GridCell.Tab.0.center" timestamp="1580278722931">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1579259719775" />
-    <state width="1493" height="279" key="GridCell.Tab.1.left" timestamp="1579259719774">
+    <state width="1493" height="309" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1580278722931" />
+    <state width="1493" height="309" key="GridCell.Tab.0.left" timestamp="1580278722930">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1579259719774" />
-    <state width="1493" height="279" key="GridCell.Tab.1.right" timestamp="1579259719775">
+    <state width="1493" height="309" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1580278722930" />
+    <state width="1493" height="309" key="GridCell.Tab.0.right" timestamp="1580278722931">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1579259719775" />
+    <state width="1493" height="309" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1580278722931" />
+    <state width="1493" height="309" key="GridCell.Tab.1.bottom" timestamp="1580278722931">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="309" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580278722931" />
+    <state width="1493" height="309" key="GridCell.Tab.1.center" timestamp="1580278722931">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="309" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1580278722931" />
+    <state width="1493" height="309" key="GridCell.Tab.1.left" timestamp="1580278722931">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="309" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1580278722931" />
+    <state width="1493" height="309" key="GridCell.Tab.1.right" timestamp="1580278722931">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="309" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1580278722931" />
+    <state width="1493" height="222" key="GridCell.Tab.2.bottom" timestamp="1580134920610">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="222" key="GridCell.Tab.2.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580134920610" />
+    <state width="1493" height="222" key="GridCell.Tab.2.center" timestamp="1580134920609">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="222" key="GridCell.Tab.2.center/0.0.1536.864@0.0.1536.864" timestamp="1580134920609" />
+    <state width="1493" height="222" key="GridCell.Tab.2.left" timestamp="1580134920609">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="222" key="GridCell.Tab.2.left/0.0.1536.864@0.0.1536.864" timestamp="1580134920609" />
+    <state width="1493" height="222" key="GridCell.Tab.2.right" timestamp="1580134920609">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="222" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1580134920609" />
     <state x="299" y="88" key="Maven.ArtifactSearchDialog" timestamp="1579147718281">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="299" y="88" key="Maven.ArtifactSearchDialog/0.0.1536.864@0.0.1536.864" timestamp="1579147718281" />
-    <state x="270" y="75" key="SettingsEditor" timestamp="1579149726318">
+    <state x="270" y="75" key="SettingsEditor" timestamp="1579506616160">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="270" y="75" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1579149726318" />
-    <state x="361" y="166" key="Vcs.Push.Dialog.v2" timestamp="1579184759253">
+    <state x="270" y="75" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1579506616160" />
+    <state x="361" y="166" key="Vcs.Push.Dialog.v2" timestamp="1580211482025">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="166" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1579184759253" />
-    <state x="449" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1579141110623">
+    <state x="361" y="166" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1580211482025" />
+    <state x="449" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1580269689409">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="449" y="257" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1579141110623" />
-    <state x="562" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579234486415">
+    <state x="449" y="257" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1580269689409" />
+    <state x="562" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579875610858">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="562" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1579234486415" />
-    <state x="526" y="151" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1579251150316">
+    <state x="562" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1579875610858" />
+    <state x="526" y="151" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1580273780079">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="526" y="151" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.864@0.0.1536.864" timestamp="1579251150316" />
-    <state x="511" y="51" key="refactoring.ChangeSignatureDialog" timestamp="1579162604730">
+    <state x="526" y="151" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.864@0.0.1536.864" timestamp="1580273780079" />
+    <state x="499" y="197" key="extract.method.dialog" timestamp="1579529418494">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="511" y="51" key="refactoring.ChangeSignatureDialog/0.0.1536.864@0.0.1536.864" timestamp="1579162604730" />
-    <state x="425" y="197" key="run.anything.popup" timestamp="1579231342121">
+    <state x="499" y="197" key="extract.method.dialog/0.0.1536.864@0.0.1536.864" timestamp="1579529418494" />
+    <state x="178" y="134" key="new project wizard" timestamp="1579629090062">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1579231342121" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1579250809599">
+    <state x="178" y="134" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1579629090062" />
+    <state x="511" y="51" key="refactoring.ChangeSignatureDialog" timestamp="1579587605358">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1579250809599" />
+    <state x="511" y="51" key="refactoring.ChangeSignatureDialog/0.0.1536.864@0.0.1536.864" timestamp="1579587605358" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1580270053806">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1580270053806" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1580188613421">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1580188613421" />
   </component>
 </project>

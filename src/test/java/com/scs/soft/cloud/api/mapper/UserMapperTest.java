@@ -45,7 +45,9 @@ class UserMapperTest {
         for(Map<String, Object> map : list){
             System.out.println(map);
         }*/
-        System.out.println(userMapper.selectUser1().size());
+        QueryDto queryDto = QueryDto.builder().id(1).build();
+        String name = userMapper.getUserById(queryDto).get("nickname").toString();
+        System.out.println(name);
     }
 
     @Test
