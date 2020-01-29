@@ -37,7 +37,7 @@ public interface UserClassMapper {
      * @param userClass
      * @throws SQLException
      */
-    @Delete("DELETE FROM t_user_class WHERE user_id=#{userId} AND class_id=#{id} ")
+    @Delete("DELETE FROM t_user_class WHERE user_id=#{userId} AND class_id=#{classId} ")
     void deleteUserClassBy(UserClass userClass) throws SQLException;
 
     /**
@@ -46,7 +46,7 @@ public interface UserClassMapper {
      * @return
      * @throws SQLException
      */
-    @Select("SELECT * FROM t_user_class WHERE id=#{id} ")
+    @Select("SELECT * FROM t_user_class WHERE class_id=#{id} ")
     Map<String, Object> getUserClassById(@Param("id") int id) throws SQLException;
 
     /**

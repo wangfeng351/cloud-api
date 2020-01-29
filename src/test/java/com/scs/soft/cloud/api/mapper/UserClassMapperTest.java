@@ -29,6 +29,7 @@ class UserClassMapperTest {
     }
 
     @Test
-    void getUserClassById() {
+    void getUserClassById() throws SQLException {
+        System.out.println(userClassMapper.getUserClassById(5));
     }
 }

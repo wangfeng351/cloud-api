@@ -70,7 +70,7 @@ public class ClassServiceImpl implements ClassService {
                 String userId = userClassMapper.getUserClassById(i).get("user_id").toString();
                 UserClass userClass = UserClass.builder()
                         .userId(Integer.parseInt(userId))
-                        .id(i).build();
+                        .classId(i).build();
                 userClassMapper.deleteUserClassBy(userClass);
             }
             return Result.success();
