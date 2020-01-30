@@ -29,7 +29,7 @@ class ClassMapperTest {
 
     @Test
     void getClassBy() throws SQLException {
-        QueryDto queryDto = QueryDto.builder().id(3172317).build();
+        QueryDto queryDto = QueryDto.builder().field("王").build();
         List<Map<String,Object>> maps = classMapper.getClassBy(queryDto);
         System.out.println(maps);
     }

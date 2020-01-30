@@ -96,6 +96,15 @@ public class ClassServiceImpl implements ClassService {
         List<Map<String, Object>> maps = new ArrayList<>();
         try {
             maps = classMapper.getClassBy(queryDto);
+            for(Map<String, Object> map : maps){
+                int id = Integer.parseInt(map.get("creator_id").toString());
+                QueryDto queryDto1 = QueryDto.builder()
+                        .id(id).build();
+                String nickname = userMapper.getUserById(queryDto1).get("nickname").toString();
+                String mobile = userMapper.getUserById(queryDto1).get("mobile").toString();
+                map.put("nickname", nickname);
+                map.put("mobile", mobile);
+            }
         } catch (SQLException e) {
             log.error("班课信息模糊查询异常");
             return Result.failure(ResultCode.DATABASE_ERROR);
