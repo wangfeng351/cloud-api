@@ -21,4 +21,11 @@ public interface ResourceService {
      * @return
      */
     Result deleteResourceById(String idList);
+
+    /**
+     * 查询某一时间段的数据
+     * @param date
+     * @return
+     */
+    Result getResourceByCreateTime(String date);
 }

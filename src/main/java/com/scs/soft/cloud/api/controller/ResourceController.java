@@ -32,4 +32,10 @@ public class ResourceController {
     Result deleteResourceById(@RequestBody UserDto userDto){
         return resourceService.deleteResourceById(userDto.getFieldList());
     }
+
+    @GetMapping(value = "/g/resource/c")
+    @ApiOperation(value = "查询时间段内的数据")
+    Result getResourceByCreateTime(@RequestBody UserDto userDto){
+        return resourceService.getResourceByCreateTime(userDto.getFieldList());
+    }
 }

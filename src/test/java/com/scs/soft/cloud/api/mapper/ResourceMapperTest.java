@@ -6,6 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -27,5 +29,23 @@ class ResourceMapperTest {
 
     @Test
     void deleteResourceById() {
+    }
+
+    @Test
+    void getResourceByCreateTime() throws SQLException {
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime l1 = LocalDateTime.parse("2020-01-01 00:00:00",df);
+        LocalDateTime l2 = LocalDateTime.parse("2020-01-31 00:00:00", df);
+        List<Map<String, Object>> maps = resourceMapper.getResourceByCreateTime("2020-01-01 00:00:00", "2020-01-31 00:00:00");
+        System.out.println(maps);
+       /* DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime localDateTime = LocalDateTime.parse("2017-09-28 17:07:05", df);
+        System.out.println(localDateTime);*/
+    }
+
+    @Test
+    void getResourceBy() throws SQLException {
+        List<Map<String, Object>> map = resourceMapper.getResourceBy();
+        System.out.println(map);
     }
 }

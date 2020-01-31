@@ -2,6 +2,7 @@ package com.scs.soft.cloud.api.service;
 
 import com.scs.soft.cloud.api.CloudApiApplication;
 import com.scs.soft.cloud.api.common.Result;
+import com.scs.soft.cloud.api.domain.dto.PageDto;
 import com.scs.soft.cloud.api.domain.vo.UserVo;
 import com.scs.soft.cloud.api.entity.User;
 import org.junit.jupiter.api.Test;
@@ -56,9 +57,9 @@ class UserServiceTest {
 
     @Test
     void selectAllUser() throws IOException {
-       /* PageDto pageDto = PageDto.builder().currentPage(1).pageSize(5).year("2020").build();
+        PageDto pageDto = PageDto.builder().currentPage(1).pageSize(5).year("2020").build();
         Result rs = userService.selectAllUser(pageDto);
-        System.out.println(rs);*/
+        System.out.println(rs);
 
     }
 }

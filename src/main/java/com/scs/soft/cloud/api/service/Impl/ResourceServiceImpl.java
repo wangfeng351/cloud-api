@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,20 +34,24 @@ public class ResourceServiceImpl implements ResourceService {
 
     @Override
     public Result selectAllResource() {
+        /*不能定义为null*/
+        Map<String, Object> map = new HashMap<>();
         List<Map<String, Object>> maps = new ArrayList<>();
         try {
             maps = resourceMapper.getResource();
-            for(Map<String, Object> map : maps){
+            for(Map<String, Object> map1 : maps){
                 QueryDto queryDto = QueryDto.builder()
-                        .id(Integer.parseInt(map.get("id").toString())).build();
-                map.put("creatorName", userMapper.getUserById(queryDto).get("nickname"));
+                        .id(Integer.parseInt(map1.get("id").toString())).build();
+                map1.put("creatorName", userMapper.getUserById(queryDto).get("nickname"));
             }
+            map.put("selectAllApi", maps);
+            map.put("typeNameApi", resourceMapper.getResourceBy());
         } catch (SQLException e) {
             log.error("获取资源数据异常");
             return Result.failure(ResultCode.DATABASE_ERROR);
         }
-        if(maps != null){
-            return Result.success(maps);
+        if(map != null){
+            return Result.success(map);
         }
         return Result.failure(ResultCode.DATA_IS_WRONG);
     }
@@ -66,5 +71,21 @@ public class ResourceServiceImpl implements ResourceService {
             log.error("删除资源操作异常");
             return Result.failure(ResultCode.DATABASE_ERROR);
         }
+    }
+
+    @Override
+    public Result getResourceByCreateTime(String date) {
+        List<Map<String, Object>> maps = new ArrayList<>();
+        String[] dates = date.split(",");
+        try {
+            maps = resourceMapper.getResourceByCreateTime(dates[0], dates[1]);
+        } catch (SQLException e) {
+            log.error("查询一段时间内数据异常");
+            return Result.failure(ResultCode.DATABASE_ERROR);
+        }
+        if(maps != null){
+            return Result.success(maps);
+        }
+        return Result.failure(ResultCode.DATA_IS_WRONG);
     }
 }

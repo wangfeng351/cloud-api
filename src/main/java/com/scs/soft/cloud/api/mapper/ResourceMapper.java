@@ -53,4 +53,17 @@ public interface ResourceMapper {
             "</foreach>",
             "</script>"})
     void deleteResourceById(@Param("idList") List<Integer> idList) throws SQLException;
+
+    /**
+     * 根据指定时间段查询信息
+     * @param beginDate
+     * @param endDate
+     * @return
+     * @throws SQLException
+     */
+    @Select("SELECT * FROM t_resource WHERE 1=1 AND date_format(create_time,'%Y-%m-%d') between #{beginDate} and #{endDate}")
+    List<Map<String, Object>> getResourceByCreateTime(@Param("beginDate") String beginDate, @Param("endDate") String endDate) throws SQLException;
+
+    @Select("SELECT type AS 'typeName' FROM t_resource GROUP BY type")
+    List<Map<String, Object>> getResourceBy() throws SQLException;
 }
