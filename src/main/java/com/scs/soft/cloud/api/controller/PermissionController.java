@@ -1,6 +1,7 @@
 package com.scs.soft.cloud.api.controller;
 
 import com.scs.soft.cloud.api.common.Result;
+import com.scs.soft.cloud.api.domain.dto.UserDto;
 import com.scs.soft.cloud.api.entity.Permission;
 import com.scs.soft.cloud.api.service.PermissionService;
 import io.swagger.annotations.Api;
@@ -47,7 +48,7 @@ public class PermissionController {
 
     @ApiOperation(value = "模糊查询权限")
     @PostMapping(value = "/g/b/pm")
-    Result getPermissionByName(@RequestBody Permission permission){
-        return permissionService.getPermissionByName(permission);
+    Result getPermissionByName(@RequestBody UserDto userDto){
+        return permissionService.getPermissionByName(userDto.getFieldList());
     }
 }

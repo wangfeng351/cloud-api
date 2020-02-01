@@ -85,8 +85,8 @@ public interface ClassMapper {
     @Delete("<script>" +
             "DELETE FROM t_class " +
             "WHERE creator_id IN " +
-            "<foreach item='item' index='index' collection='idList'>" +
-            "open='(' separator',' close=')'>" +
+            "<foreach item='item' index='index' collection='idList' " +
+            "open='(' separator=',' close=')'>" +
             "#{item}" +
             "</foreach>" +
             "</script> ")

@@ -1,6 +1,7 @@
 package com.scs.soft.cloud.api.service;
 
 import com.scs.soft.cloud.api.common.Result;
+import com.scs.soft.cloud.api.entity.Resource;
 
 /**
  * @author wf
@@ -28,4 +29,6 @@ public interface ResourceService {
      * @return
      */
     Result getResourceByCreateTime(String date);
+
+    Result updateResource(Resource resource);
 }

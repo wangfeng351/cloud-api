@@ -63,11 +63,4 @@ public class UserController {
     Result getUserBy(@RequestBody PageDto pageDto){
         return userService.getUserBy(pageDto);
     }
-
-    @GetMapping(value = "/p/export/user")
-    @ApiOperation(value = "导出用户信息")
-    Result download(){
-        return userService.exportUserInformation();
-    }
-
 }

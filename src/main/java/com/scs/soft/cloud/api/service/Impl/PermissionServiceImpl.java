@@ -83,10 +83,10 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
-    public Result getPermissionByName(Permission permission) {
+    public Result getPermissionByName(String name) {
         List<Permission> permissions;
         try {
-            permissions = permissionMapper.getPermissionByName(permission);
+            permissions = permissionMapper.getPermissionByName(name);
         } catch (SQLException e) {
             log.error("权限模糊查询异常");
             return Result.failure(ResultCode.DATABASE_ERROR);

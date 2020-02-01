@@ -37,8 +37,8 @@ public interface PermissionService {
 
     /**
      * 根据权限名模糊查询
-     * @param permission
+     * @param name
      * @return
      */
-    Result getPermissionByName(Permission permission);
+    Result getPermissionByName(String name);
 }

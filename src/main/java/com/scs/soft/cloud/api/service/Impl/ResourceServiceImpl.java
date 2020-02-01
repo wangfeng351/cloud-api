@@ -79,6 +79,11 @@ public class ResourceServiceImpl implements ResourceService {
         String[] dates = date.split(",");
         try {
             maps = resourceMapper.getResourceByCreateTime(dates[0], dates[1]);
+            for(Map<String, Object> map1 : maps){
+                QueryDto queryDto = QueryDto.builder()
+                        .id(Integer.parseInt(map1.get("id").toString())).build();
+                map1.put("creatorName", userMapper.getUserById(queryDto).get("nickname"));
+            }
         } catch (SQLException e) {
             log.error("查询一段时间内数据异常");
             return Result.failure(ResultCode.DATABASE_ERROR);
@@ -87,5 +92,15 @@ public class ResourceServiceImpl implements ResourceService {
             return Result.success(maps);
         }
         return Result.failure(ResultCode.DATA_IS_WRONG);
+    }
+
+    @Override
+    public Result updateResource(com.scs.soft.cloud.api.entity.Resource resource) {
+        try {
+            resourceMapper.updateResource(resource);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Result.success();
     }
 }

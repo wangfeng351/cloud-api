@@ -4,8 +4,11 @@ import com.scs.soft.cloud.api.entity.User;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.*;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -152,8 +155,7 @@ public class ImportDataUtil {
         outputStream.close();
     }
 
-    public static void createExcel1(HttpServletResponse response, List<Map<String, Object>> maps) throws IOException {
-        String filePath = "账户信息表.xls";
+    public static ResponseEntity createUsersExcel(List<Map<String, Object>> maps) throws IOException {
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("Sheet1");
         HSSFRow row = sheet.createRow(0);
@@ -186,17 +188,66 @@ public class ImportDataUtil {
         HSSFCreationHelper creationHelper = workbook.getCreationHelper();
         cellStyle2.setDataFormat(creationHelper.createDataFormat().getFormat("yyyy-MM-dd HH:mm:ss"));
         sheet.setColumnWidth(2, 20 * 256); // 设置列的宽度
-        response.setContentType("application/vnd.ms-excel;charset=utf-8");
-        response.setHeader("Content-disposition", "attachment;filename=" + filePath);
-        response.flushBuffer();
-        OutputStream outputStream = response.getOutputStream();
-        workbook.setActiveSheet(0);
-        workbook.write(response.getOutputStream());
-        outputStream.flush();
-        outputStream.close();
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        HttpHeaders headers = new HttpHeaders();
+        try {
+            headers.setContentDispositionFormData("attachment",
+                    new String("用户数据表.xls".getBytes("UTF-8"),"ISO-8859-1"));
+            headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+            workbook.write(stream);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity(stream.toByteArray(),headers, HttpStatus.CREATED);
     }
+
 
     public static void main(String[] args) throws SQLException {
 
+    }
+
+    public static ResponseEntity createResourcesExcel(List<Map<String, Object>> maps) throws IOException {
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("Sheet1");
+        HSSFRow row = sheet.createRow(0);
+        row.createCell(0).setCellValue("创建者昵称");
+        row.createCell(1).setCellValue("资源名称");
+        row.createCell(2).setCellValue("资源地址");
+        row.createCell(3).setCellValue("类型");
+        row.createCell(4).setCellValue("创建时间");
+        row.setHeightInPoints(20); // 设置行的高度
+
+        int i = -1;
+        int len = maps.size();
+        while (++i < len){
+            HSSFRow row1 = sheet.createRow(i+1);
+            row1.createCell(0).setCellValue(maps.get(i).get("creatorName").toString());
+            row1.createCell(1).setCellValue(maps.get(i).get("name").toString());
+            row1.createCell(2).setCellValue(maps.get(i).get("url").toString());
+            row1.createCell(3).setCellValue(maps.get(i).get("type").toString());
+            row1.createCell(4).setCellValue(maps.get(i).get("create_time").toString());
+        }
+
+        // 日期格式化
+        HSSFCellStyle cellStyle2 = workbook.createCellStyle();
+        HSSFCreationHelper creationHelper = workbook.getCreationHelper();
+        cellStyle2.setDataFormat(creationHelper.createDataFormat().getFormat("yyyy-MM-dd HH:mm:ss"));
+        sheet.setColumnWidth(0, 10 * 256); // 设置列的宽度
+        sheet.setColumnWidth(2, 20 * 256); // 设置列的宽度
+        sheet.setColumnWidth(3, 10 * 256);
+        sheet.setColumnWidth(4, 20 * 256);
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        HttpHeaders headers = new HttpHeaders();
+        try {
+            headers.setContentDispositionFormData("attachment",
+                    new String("资源数据表.xls".getBytes("UTF-8"),"ISO-8859-1"));
+            headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+            workbook.write(stream);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity(stream.toByteArray(),headers, HttpStatus.CREATED);
     }
 }

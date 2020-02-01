@@ -138,12 +138,16 @@ public class UserServiceImpl implements UserService {
         List<String> list = new ArrayList<>();
         List<Integer> list1 = new ArrayList<>();
         try {
+            System.out.println(idList);
             String[] id = idList.split(",");
             for(String i : id){
                 if(i != null){
                     list.add(i);
                     QueryDto queryDto = QueryDto.builder().field(i).build();
-                    list1.add(Integer.parseInt(userMapper.getUserById(queryDto).get("id").toString()));
+                    String userId = userMapper.getUserById(queryDto).get("id").toString();
+                    if(userId != null) {
+                        list1.add(Integer.parseInt(userId));
+                    }
                 }
             }
             userRoleMapper.deleteUserRoleById(list1);
@@ -225,43 +229,6 @@ public class UserServiceImpl implements UserService {
         }
         if(list != null){
             return Result.success(list);
-        }
-        return Result.failure(ResultCode.DATA_IS_WRONG);
-    }
-
-    @Override
-    public Result exportUserInformation() {
-
-        List<Map<String, Object>> users = new ArrayList<>();
-        Map<String, Object> map;
-        try {
-            int n = userMapper.selectUser1().size();
-            PageDto pageDto = PageDto.builder().pageSize(n).currentPage(1).build();
-            users = userMapper.selectUser(pageDto);
-            int len = users.size();
-            for (Map<String, Object> user : users) {
-                map = userRoleMapper.getUserRoleById(Integer.parseInt(user.get("id").toString()));
-                map = roleMapper.getRoleById(Integer.parseInt(map.get("role_id").toString()));
-                user.put("roleName",map.get("name"));
-                map = userLoginMapper.getUserLoginByMobile(user.get("mobile").toString());
-                /*map报空异常*/
-                if(map != null){
-                    user.put("status", map.get("status"));
-                }
-            }
-        } catch (SQLException e) {
-            log.error("查询所有用户信息异常");
-            return Result.failure(ResultCode.DATABASE_ERROR);
-        }
-        if(users.size() != 0){
-            File file = new File("E:\\");
-            try {
-                ImportDataUtil.createExcel(file, users);
-                return Result.success();
-            } catch (IOException e) {
-                log.error("信息导出异常");
-                return Result.failure(ResultCode.DATA_IS_WRONG);
-            }
         }
         return Result.failure(ResultCode.DATA_IS_WRONG);
     }

@@ -33,9 +33,15 @@ public class ResourceController {
         return resourceService.deleteResourceById(userDto.getFieldList());
     }
 
-    @GetMapping(value = "/g/resource/c")
+    @PostMapping(value = "/g/resource/c")
     @ApiOperation(value = "查询时间段内的数据")
     Result getResourceByCreateTime(@RequestBody UserDto userDto){
         return resourceService.getResourceByCreateTime(userDto.getFieldList());
+    }
+
+    @PutMapping(value = "/p/resource")
+    @ApiOperation(value = "修改资源")
+    Result updateResource(@RequestBody com.scs.soft.cloud.api.entity.Resource resource){
+        return resourceService.updateResource(resource);
     }
 }

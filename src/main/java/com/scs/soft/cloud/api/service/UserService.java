@@ -51,10 +51,4 @@ public interface UserService {
      * @return
      */
     Result getUserBy(PageDto pageDto);
-
-    /**
-     * 导出所有用户信息，默认E盘根目录
-     * @return
-     */
-    Result exportUserInformation();
 }

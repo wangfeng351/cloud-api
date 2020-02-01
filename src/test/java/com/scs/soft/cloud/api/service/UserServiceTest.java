@@ -4,6 +4,7 @@ import com.scs.soft.cloud.api.CloudApiApplication;
 import com.scs.soft.cloud.api.common.Result;
 import com.scs.soft.cloud.api.domain.dto.PageDto;
 import com.scs.soft.cloud.api.domain.vo.UserVo;
+import com.scs.soft.cloud.api.entity.Role;
 import com.scs.soft.cloud.api.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,6 +24,8 @@ import java.util.List;
 class UserServiceTest {
     @Resource
     private UserService userService;
+    @Resource
+    private RoleService roleService;
 
     @Test
     void batchInsertUser() throws IOException, ParseException {
@@ -39,8 +42,11 @@ class UserServiceTest {
 
     @Test
     void deleteUserById() {
-        String mobile = "14752191361";
-        userService.deleteUserById(mobile);
+        /*String mobile = "14752191361";
+        userService.deleteUserById(mobile);*/
+        Role role = Role.builder().name("助教").code(123456).build();
+        Result rs = roleService.insertRole(role);
+        System.out.println(rs);
     }
 
     @Test

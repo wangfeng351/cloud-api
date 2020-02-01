@@ -84,11 +84,11 @@ public interface PermissionMapper {
 
     /**
      * 根据名称模糊查询
-     * @param permission
+     * @param name
      * @return
      * @throws SQLException
      */
     @Select("SELECT * FROM t_permission WHERE name LIKE CONCAT('%', #{name}, '%')")
-    List<Permission> getPermissionByName(Permission permission) throws SQLException;
+    List<Permission> getPermissionByName(@Param("name") String name) throws SQLException;
 }
 

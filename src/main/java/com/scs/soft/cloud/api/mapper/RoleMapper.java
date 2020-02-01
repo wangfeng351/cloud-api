@@ -32,6 +32,15 @@ public interface RoleMapper {
     Map<String, Object> getRoleById(@Param("id") int id) throws SQLException;
 
     /**
+     * 根据角色名称查询角色信息
+     * @param name
+     * @return
+     * @throws SQLException
+     */
+    @Select("SELECT COUNT(*) FROM t_role WHERE name=#{name} ")
+    int getRoleByName(@Param("name") String name) throws SQLException;
+
+    /**
      * 修改角色信息
      * @param role
      * @throws SQLException

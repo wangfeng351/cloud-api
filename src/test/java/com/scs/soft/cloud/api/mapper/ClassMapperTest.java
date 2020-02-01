@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +21,8 @@ import java.util.Map;
 class ClassMapperTest {
     @Resource
     private ClassMapper classMapper;
+    @Resource
+    private UserMapper userMapper;
 
     @Test
     void selectAllClass() throws SQLException {
@@ -48,5 +51,15 @@ class ClassMapperTest {
 
     @Test
     void deleteClassByCreatorId() {
+    }
+
+    @Test
+    void testDeleteClassByCreatorId() throws SQLException {
+        List<Integer> list = new ArrayList<>();
+        QueryDto queryDto = QueryDto.builder().field("18361649527").build();
+        String id = userMapper.getUserById(queryDto).get("id").toString();
+        list.add(Integer.parseInt(id));
+        System.out.println(Integer.parseInt(id));
+     classMapper.deleteClassByCreatorId(list);
     }
 }

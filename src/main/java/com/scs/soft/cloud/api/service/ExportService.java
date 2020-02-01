@@ -1,6 +1,7 @@
 package com.scs.soft.cloud.api.service;
 
-import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author wf
@@ -9,5 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public interface ExportService {
 
-    void ExportInformation(HttpServletResponse response);
+    List<Map<String, Object>> getResourceInformation();
+
+    List<Map<String, Object>> getUserInformation();
 }

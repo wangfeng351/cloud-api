@@ -34,7 +34,5 @@ class PermissionServiceTest {
 
     @Test
     void getPermissionByName() {
-        Permission queryDto = Permission.builder().name("资源").build();
-        System.out.println(permissionService.getPermissionByName(queryDto));
     }
 }

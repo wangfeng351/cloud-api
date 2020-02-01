@@ -1,8 +1,10 @@
 package com.scs.soft.cloud.api.mapper;
 
+import com.scs.soft.cloud.api.entity.Resource;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -64,6 +66,23 @@ public interface ResourceMapper {
     @Select("SELECT * FROM t_resource WHERE 1=1 AND date_format(create_time,'%Y-%m-%d') between #{beginDate} and #{endDate}")
     List<Map<String, Object>> getResourceByCreateTime(@Param("beginDate") String beginDate, @Param("endDate") String endDate) throws SQLException;
 
+    /**
+     * 查询类型名称
+     * @return
+     * @throws SQLException
+     */
     @Select("SELECT type AS 'typeName' FROM t_resource GROUP BY type")
     List<Map<String, Object>> getResourceBy() throws SQLException;
+
+    /**
+     * 根据类型查询资源
+     * @param resource
+     * @return
+     * @throws SQLException
+     */
+    @Select("SELECT * FROM t_resource WHERE type=#{type}")
+    List<Map<String, Object>> getResourceByType(Resource resource) throws SQLException;
+
+    @Update("UPDATE t_resource SET create_time=#{createTime} WHERE id=#{id}")
+    void updateResource(Resource resource) throws SQLException;
 }

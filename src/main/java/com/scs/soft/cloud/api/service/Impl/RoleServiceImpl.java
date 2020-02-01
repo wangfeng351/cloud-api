@@ -63,14 +63,19 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Result insertRole(Role role) {
         try {
+            System.out.println(role);
             commonMapper.alert("t_role");
             role.setCode(StringUtil.getRoleCode());
+            int n = roleMapper.getRoleByName(role.getName());
+            if(n != 0){
+                return Result.failure(ResultCode.DATA_ALREADY_EXISTED);
+            }
             roleMapper.insertRole(role);
-            return Result.success();
         } catch (SQLException e) {
             log.error("新增角色信息");
             return Result.failure(ResultCode.DATABASE_ERROR);
         }
+        return Result.success();
     }
 
     @Override

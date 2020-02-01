@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -57,7 +56,13 @@ class PermissionMapperTest {
 
     @Test
     void getPermissionByName() throws SQLException {
-        Permission queryDto = Permission.builder().name("资源").build();
-        System.out.println( mapper.getPermissionByName(queryDto));
+        /*Permission queryDto = Permission.builder().name("资源").build();
+        System.out.println( mapper.getPermissionByName(queryDto));*/
+    }
+
+    @Test
+    void testGetPermissionByName() throws SQLException {
+       /* UserDto userDto = UserDto.builder().fieldList("成员").build();
+        System.out.println(mapper.getPermissionByName(userDto));*/
     }
 }

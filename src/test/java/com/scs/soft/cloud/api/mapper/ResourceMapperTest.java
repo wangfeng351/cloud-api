@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,5 +48,16 @@ class ResourceMapperTest {
     void getResourceBy() throws SQLException {
         List<Map<String, Object>> map = resourceMapper.getResourceBy();
         System.out.println(map);
+    }
+
+    @Test
+    void updateResource() {
+    }
+
+    @Test
+    void deleteResourceByCreatorId() throws SQLException {
+        List<Integer> id = new ArrayList<>();
+        id.add(1);
+        resourceMapper.deleteResourceByCreatorId(id);
     }
 }

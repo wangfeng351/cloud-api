@@ -27,6 +27,7 @@ public class UserLoginServiceImpl implements UserLoginService {
     @Override
     public Result updateUserLoginPasswordByMobile(String mobiles) {
         List<String> list = new ArrayList<>();
+        System.out.println(mobiles);
         String[] mobile = mobiles.split(",");
         for(String i : mobile){
             list.add(i);

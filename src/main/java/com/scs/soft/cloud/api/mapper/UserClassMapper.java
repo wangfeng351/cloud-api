@@ -23,13 +23,13 @@ public interface UserClassMapper {
      * @throws SQLException
      */
     @Delete("<script>" +
-            "DELETE FROM t_user_class" +
+            "DELETE FROM t_user_class " +
             "WHERE user_id IN " +
             "<foreach item='item' index='index' collection='userIdList' " +
             "open='(' separator=',' close=')'>" +
             "#{item}" +
             "</foreach>" +
-            "</script>")
+            "</script> ")
     void deleteUserClassByUserId(@Param("userIdList") List<Integer> userIdList) throws SQLException;
 
     /**

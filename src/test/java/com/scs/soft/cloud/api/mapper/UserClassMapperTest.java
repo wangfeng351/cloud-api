@@ -1,12 +1,13 @@
 package com.scs.soft.cloud.api.mapper;
 
 import com.scs.soft.cloud.api.CloudApiApplication;
-import com.scs.soft.cloud.api.entity.UserClass;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author wf
@@ -20,8 +21,11 @@ class UserClassMapperTest {
 
     @Test
     void deleteUserClassByUserId() throws SQLException {
-        UserClass userClass = UserClass.builder().userId(3).id(5).build();
-        userClassMapper.deleteUserClassBy(userClass);
+       /* UserClass userClass = UserClass.builder().userId(3).id(5).build();
+        userClassMapper.deleteUserClassBy(userClass);*/
+       List<Integer> list = new ArrayList<>();
+       list.add(1);
+       userClassMapper.deleteUserClassByUserId(list);
     }
 
     @Test
@@ -32,4 +36,5 @@ class UserClassMapperTest {
     void getUserClassById() throws SQLException {
         System.out.println(userClassMapper.getUserClassById(5));
     }
+
 }
