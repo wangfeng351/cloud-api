@@ -8,7 +8,7 @@ import com.scs.soft.cloud.api.domain.vo.UserVo;
 import com.scs.soft.cloud.api.entity.*;
 import com.scs.soft.cloud.api.mapper.*;
 import com.scs.soft.cloud.api.service.UserService;
-import com.scs.soft.cloud.api.util.ImportDataUtil;
+import com.scs.soft.cloud.api.util.ExcelsUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -56,9 +56,9 @@ public class UserServiceImpl implements UserService {
         String ffx = file.getName().substring(position + 1);
         try {
             if(ffx.equals("xls")){
-                users = ImportDataUtil.readExcel(file);
+                users = ExcelsUtil.readExcel(file);
             }else if(ffx.equals("xlsx")) {
-                users = ImportDataUtil.readExcel2(file);
+                users = ExcelsUtil.readExcel2(file);
             }
             commonMapper.alert("t_user_role");
             commonMapper.alert("t_user");

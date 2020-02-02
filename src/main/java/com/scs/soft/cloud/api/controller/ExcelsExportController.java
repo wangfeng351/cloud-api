@@ -1,15 +1,15 @@
 package com.scs.soft.cloud.api.controller;
 
 import com.scs.soft.cloud.api.service.ExportService;
-import com.scs.soft.cloud.api.util.ImportDataUtil;
+import com.scs.soft.cloud.api.util.ExcelsUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 
@@ -20,22 +20,22 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/api/download")
-@Api(value = "DataExportController", tags = "数据导入导出接口")
-public class DataExportController {
+@Api(value = "ExcelsExportController", tags = "数据导入导出接口")
+public class ExcelsExportController {
     @Resource
     private ExportService exportService;
 
-    @GetMapping(value = "/resource")
+    @PostMapping(value = "/resource")
     @ApiOperation(value = "导出资源数据")
-    public Object exportResource() throws IOException {
+    public void exportResource(HttpServletResponse response) throws Exception {
         List<Map<String, Object>> maps = exportService.getResourceInformation();
-        return ImportDataUtil.createResourcesExcel(maps);
+        ExcelsUtil.exportResourceExcel(response, maps);
     }
 
-    @GetMapping(value = "/users")
+    @PostMapping(value = "/users")
     @ApiOperation(value = "导出用户数据")
-    public Object exportUsers() throws IOException {
+    public void exportUsers(HttpServletResponse response) throws Exception {
         List<Map<String, Object>> maps = exportService.getUserInformation();
-        return ImportDataUtil.createUsersExcel(maps);
+        ExcelsUtil.exportUserExcel(response,maps );
     }
 }

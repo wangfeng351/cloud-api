@@ -36,13 +36,22 @@ public class ResourceServiceImpl implements ResourceService {
     public Result selectAllResource() {
         /*不能定义为null*/
         Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map2 = new HashMap<>();
         List<Map<String, Object>> maps = new ArrayList<>();
         try {
             maps = resourceMapper.getResource();
             for(Map<String, Object> map1 : maps){
                 QueryDto queryDto = QueryDto.builder()
-                        .id(Integer.parseInt(map1.get("id").toString())).build();
-                map1.put("creatorName", userMapper.getUserById(queryDto).get("nickname"));
+                        .id(Integer.parseInt(map1.get("creator_id").toString())).build();
+                map2 = userMapper.getUserById(queryDto);
+                if(map2 != null) {
+                    String creatorName = userMapper.getUserById(queryDto).get("nickname").toString();
+                    if (creatorName != null) {
+                        map1.put("creatorName", userMapper.getUserById(queryDto).get("nickname"));
+                    } else {
+                        map1.put("creatorName", "");
+                    }
+                }
             }
             map.put("selectAllApi", maps);
             map.put("typeNameApi", resourceMapper.getResourceBy());
