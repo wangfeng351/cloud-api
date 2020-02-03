@@ -30,5 +30,11 @@ public interface ResourceService {
      */
     Result getResourceByCreateTime(String date);
 
+    /**
+     * 根据类型将数据进行分组
+     * @return
+     */
+    Result getResourceGroupByType();
+
     Result updateResource(Resource resource);
 }

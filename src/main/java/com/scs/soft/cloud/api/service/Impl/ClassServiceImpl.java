@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,16 +37,23 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public Result selectAll() {
         List<Map<String, Object>> maps = new ArrayList<>();
+        Map<String, Object> map1 = new HashMap<>();
         try {
             maps = classMapper.selectAllClass();
             for(Map<String, Object> map : maps){
                 int id = Integer.parseInt(map.get("creator_id").toString());
                 QueryDto queryDto = QueryDto.builder()
                         .id(id).build();
-                String nickname = userMapper.getUserById(queryDto).get("nickname").toString();
-                String mobile = userMapper.getUserById(queryDto).get("mobile").toString();
+                map1 = userMapper.getUserById(queryDto);
+                if(map1 != null){
+                    String nickname = userMapper.getUserById(queryDto).get("nickname").toString();
                     map.put("nickname", nickname);
+                    String mobile = userMapper.getUserById(queryDto).get("mobile").toString();
                     map.put("mobile", mobile);
+                } else {
+                    map.put("nickname", " ");
+                    map.put("mobile", " ");
+                }
             }
         } catch (SQLException e) {
             log.error("查询所有班课信息异常");

@@ -83,6 +83,11 @@ public interface ResourceMapper {
     @Select("SELECT * FROM t_resource WHERE type=#{type}")
     List<Map<String, Object>> getResourceByType(Resource resource) throws SQLException;
 
+    @Select("SELECT type AS 'name', COUNT(*) AS 'value' FROM t_resource " +
+            "GROUP BY type ")
+    List<Map<String, Object>> getResourceGroupByType() throws SQLException;
+
+
     @Update("UPDATE t_resource SET create_time=#{createTime} WHERE id=#{id}")
     void updateResource(Resource resource) throws SQLException;
 }

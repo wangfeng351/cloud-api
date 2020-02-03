@@ -104,6 +104,21 @@ public class ResourceServiceImpl implements ResourceService {
     }
 
     @Override
+    public Result getResourceGroupByType() {
+        List<Map<String, Object>> maps = new ArrayList<>();
+        try {
+            maps = resourceMapper.getResourceGroupByType();
+        } catch (SQLException e) {
+            log.error("资源根据类型分组查询异常");
+            return Result.failure(ResultCode.DATABASE_ERROR);
+        }
+        if(maps != null){
+            return Result.success(maps);
+        }
+        return Result.failure(ResultCode.DATA_IS_WRONG);
+    }
+
+    @Override
     public Result updateResource(com.scs.soft.cloud.api.entity.Resource resource) {
         try {
             resourceMapper.updateResource(resource);

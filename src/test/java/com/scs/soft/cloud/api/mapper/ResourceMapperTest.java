@@ -60,4 +60,10 @@ class ResourceMapperTest {
         id.add(1);
         resourceMapper.deleteResourceByCreatorId(id);
     }
+
+    @Test
+    void getResourceByType() throws SQLException {
+        List<Map<String, Object>> maps = resourceMapper.getResourceGroupByType();
+        System.out.println(maps);
+    }
 }

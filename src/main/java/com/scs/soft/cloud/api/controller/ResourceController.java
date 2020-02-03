@@ -44,4 +44,10 @@ public class ResourceController {
     Result updateResource(@RequestBody com.scs.soft.cloud.api.entity.Resource resource){
         return resourceService.updateResource(resource);
     }
+
+    @GetMapping(value = "/statistics")
+    @ApiOperation(value = "资源数据统计")
+    Result getResourceGroupByType(){
+        return resourceService.getResourceGroupByType();
+    }
 }
